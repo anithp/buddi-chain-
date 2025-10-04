@@ -1,0 +1,36 @@
+# Core dependencies
+fastapi>=0.100.0
+uvicorn[standard]>=0.20.0
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# Database
+sqlalchemy>=2.0.0
+alembic>=1.10.0
+# psycopg2-binary>=2.9.0  # Commented out for easier setup - using SQLite instead
+
+# æternity blockchain (commented out - not available on PyPI)
+# aeternity==3.0.0
+cryptography>=42.0.0
+
+# Data processing and analytics
+pandas>=1.5.0
+numpy>=1.20.0
+requests>=2.25.0
+textblob>=0.17.0
+# transformers>=4.20.0  # Commented out - large dependency
+# torch>=1.12.0  # Commented out - large dependency
+scikit-learn>=1.0.0
+
+# Web interface
+jinja2>=3.0.0
+python-multipart>=0.0.5
+
+# Development
+pytest>=7.0.0
+pytest-asyncio>=0.20.0
+black>=22.0.0
+flake8>=5.0.0
+
+# Optional: IPFS
+# ipfshttpclient>=0.8.0  # Commented out - optional dependency

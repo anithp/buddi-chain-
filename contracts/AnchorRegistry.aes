@@ -1,0 +1,43 @@
+contract AnchorRegistry =
+  record
+    owner : address;
+    next_anchor_id : int;
+    anchors : map(int, anchor_data)
+  end
+
+  type anchor_data =
+    { merkle_root : hash;
+      manifest : string;
+      policy : string;
+      storage_hint : string;
+      created_at : int;
+      creator : address }
+
+  entrypoint init() : state =
+    { owner = Call.caller;
+      next_anchor_id = 1;
+      anchors = {} }
+
+  entrypoint anchor(merkle_root : hash, manifest : string, policy : string, storage_hint : string) : (int, state) =
+    let anchor_id = state.next_anchor_id in
+    let anchor_data = { merkle_root = merkle_root;
+                       manifest = manifest;
+                       policy = policy;
+                       storage_hint = storage_hint;
+                       created_at = Chain.timestamp;
+                       creator = Call.caller } in
+    let new_anchors = Map.put(anchor_id, anchor_data, state.anchors) in
+    let new_state = { state | next_anchor_id = anchor_id + 1;
+                              anchors = new_anchors } in
+    (anchor_id, new_state)
+
+  entrypoint get_anchor(anchor_id : int) : option(anchor_data) =
+    Map.lookup(anchor_id, state.anchors)
+
+  entrypoint get_anchor_count() : int =
+    state.next_anchor_id - 1
+
+  entrypoint verify_anchor(anchor_id : int, merkle_root : hash) : bool =
+    switch(Map.lookup(anchor_id, state.anchors))
+      None => false
+      Some(anchor) => anchor.merkle_root == merkle_root

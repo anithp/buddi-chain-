@@ -1,0 +1,2204 @@
+[
+  {
+    "id": 1,
+    "user_id": "user_123",
+    "anchor_id": "demo_anchor_demo_001",
+    "token_id": "demo_token_demo_001",
+    "summary": {
+      "text": "User discussed API integration issues with our new payment system. They mentioned problems with webhook handling and error responses. The conversation covered troubleshooting steps and potential solutions.",
+      "content": "API integration discussion focusing on payment system webhooks and error handling."
+    },
+    "actions": [
+      {
+        "type": "api_call",
+        "endpoint": "/payments/webhook",
+        "status": "failed"
+      },
+      {
+        "type": "error_log",
+        "message": "Webhook timeout after 30 seconds"
+      },
+      {
+        "type": "retry",
+        "attempt": 1,
+        "status": "pending"
+      }
+    ],
+    "conversation_metadata": {
+      "user_id": "user_123",
+      "session_duration": 1800,
+      "language": "en",
+      "platform": "web"
+    },
+    "sentiment": 0.06818181818181818,
+    "sentiment_label": "neutral",
+    "topics": [
+      "technology",
+      "general"
+    ],
+    "keywords": [
+      "api",
+      "api integration",
+      "conversation",
+      "conversation covered",
+      "covered",
+      "covered troubleshooting",
+      "discussed",
+      "discussed api",
+      "error",
+      "error responses"
+    ],
+    "quality_score": 1.0,
+    "engagement_score": 0.5,
+    "merkle_root": "demo_merkle_demo_001",
+    "created_at": "2025-10-04T23:14:57"
+  },
+  {
+    "id": 3,
+    "user_id": "user_789",
+    "anchor_id": "demo_anchor_demo_003",
+    "token_id": "demo_token_demo_003",
+    "summary": {
+      "text": "Technical discussion about implementing OAuth 2.0 authentication. Developer asked about best practices for token refresh and security considerations. We provided code examples and security guidelines.",
+      "content": "OAuth 2.0 implementation guidance and security best practices discussion."
+    },
+    "actions": [
+      {
+        "type": "code_review",
+        "file": "auth.js"
+      },
+      {
+        "type": "security_audit",
+        "findings": 2
+      },
+      {
+        "type": "documentation",
+        "created": "oauth_guide.md"
+      }
+    ],
+    "conversation_metadata": {
+      "user_id": "user_789",
+      "session_duration": 3600,
+      "language": "en",
+      "platform": "desktop"
+    },
+    "sentiment": 0.5,
+    "sentiment_label": "positive",
+    "topics": [
+      "technology",
+      "general"
+    ],
+    "keywords": [
+      "security",
+      "20",
+      "20 authentication",
+      "asked",
+      "asked best",
+      "authentication",
+      "authentication developer",
+      "best",
+      "best practices",
+      "code"
+    ],
+    "quality_score": 0.7999999999999999,
+    "engagement_score": 0.4,
+    "merkle_root": "demo_merkle_demo_003",
+    "created_at": "2025-10-04T23:14:57"
+  },
+  {
+    "id": 9,
+    "user_id": "buddi_user",
+    "anchor_id": "6",
+    "token_id": "6",
+    "summary": {
+      "text": "The conversation revolves around AI marketing strategies, challenges with ad blockers, and the development of a product that enhances engagement on social media. The speakers discuss the subscription model of a product with a one-year warranty and subsequent monthly fees. They also touch upon transcription services, partnerships with Deepgram, and the potential of a memory OS for enterprises. There is a focus on the economics of selling devices and services related to AI, transcription, and data analytics.",
+      "content": "The conversation revolves around AI marketing strategies, challenges with ad blockers, and the development of a product that enhances engagement on social media. The speakers discuss the subscription model of a product with a one-year warranty and subsequent monthly fees. They also touch upon transcription services, partnerships with Deepgram, and the potential of a memory OS for enterprises. There is a focus on the economics of selling devices and services related to AI, transcription, and data analytics.",
+      "title": "AI Marketing and Transcription Services Discussion",
+      "emoji": "\ud83e\udd16",
+      "category": "technology"
+    },
+    "actions": [
+      {
+        "description": "Consider using Granola for always online AI data collection.",
+        "completed": false,
+        "deleted": false
+      },
+      {
+        "description": "Explore potential partnerships or collaborations with Deepgram for transcription services.",
+        "completed": false,
+        "deleted": false
+      },
+      {
+        "description": "Investigate the market potential for a memory OS targeted at enterprises.",
+        "completed": false,
+        "deleted": false
+      }
+    ],
+    "conversation_metadata": {
+      "user_id": "buddi_user",
+      "created_at": "2025-08-10T21:35:01.273396+00:00",
+      "finished_at": "2025-08-10T21:49:13.649471+00:00",
+      "language": "en",
+      "source": "friend",
+      "visibility": "private",
+      "status": "completed",
+      "discarded": false,
+      "transcript_segments": [
+        {
+          "id": "3472b26a-1613-481f-a963-afdf9403b3c0",
+          "text": "No. We didn't work. Where? Haven't been on tank farms. Like, it's been a very, very long time I have. Indian people, that's fine. Yeah. Indian people are sincere. How about you? What are working on? Okay. So you're trying to Com and AI. So so when we say com and AI, we trying to Not ecomm, but like No. And I have I'm not sure. Interesting. Interesting. Our forest this, for this thing, I'm I'm working on an a flow that will be that's market sponsors. Like, multiple Twitter accounts, and create more leads and leads. Stuff. Sales kind of thing or For marketing. Yeah. Marketing. Most often like marketing So just just trying to get more engagement. On social media. So right now what's happening, the biggest problem so what the biggest problem that I am facing with my product on this. So it, like, listens to you all day, and then collects. Context and stuff. Is it like starter or emailing starter? It's a starter. I have a founder here. Yeah.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": false,
+          "person_id": null,
+          "start": 0.0,
+          "end": 80.94375401999999,
+          "translations": []
+        },
+        {
+          "id": "d5529456-b408-4c5d-b83e-16d40367e3dd",
+          "text": "So Do",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 116.94000401999999,
+          "end": 117.12000402,
+          "translations": []
+        },
+        {
+          "id": "29d144cd-e657-45a0-b096-0240db1bd0bf",
+          "text": "I see you or but we we are good to go with market as stuff. So, yeah. Mhmm. Yeah, we are getting good preorders and stuff. Oh, $5.79 only. That's like one year warranty.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 117.12000402,
+          "end": 137.49000002,
+          "translations": []
+        },
+        {
+          "id": "20b342f5-cb26-4256-ba6c-d686ba604beb",
+          "text": "Yeah.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 137.71000002000002,
+          "end": 138.17000002,
+          "translations": []
+        },
+        {
+          "id": "2ddc64ae-7980-48b2-ac3a-8fa485742f91",
+          "text": "So any subscription or it's",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 102.73375001999999,
+          "end": 139.85000002,
+          "translations": []
+        },
+        {
+          "id": "b595cd08-ebb9-48e2-88a2-4d6b8cd870c9",
+          "text": "After one",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 140.01000002,
+          "end": 140.65000002000002,
+          "translations": []
+        },
+        {
+          "id": "c80bdb32-5a46-4394-ab88-8441c55c709f",
+          "text": "year,",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 140.65000002000002,
+          "end": 140.89001002,
+          "translations": []
+        },
+        {
+          "id": "27b01778-6e55-4a01-80b2-6604e2ad7448",
+          "text": "it's like",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 140.89001002,
+          "end": 141.52000002,
+          "translations": []
+        },
+        {
+          "id": "2f818f8b-bc54-4f8a-9d10-07d4a97a9636",
+          "text": "$15.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 105.52375001999998,
+          "end": 106.45375001999999,
+          "translations": []
+        },
+        {
+          "id": "56831f5e-c7d4-4661-ae0b-d03e790c556e",
+          "text": "Per",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 107.65375002,
+          "end": 107.89376001999999,
+          "translations": []
+        },
+        {
+          "id": "ffa13284-df77-48ce-a127-c291f6ce5672",
+          "text": "month?",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 143.89001002,
+          "end": 144.36000002,
+          "translations": []
+        },
+        {
+          "id": "c463bcb7-3f45-4788-8fbf-17bbb42e55e2",
+          "text": "Seriously? I think",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 109.48374001999998,
+          "end": 151.35000002,
+          "translations": []
+        },
+        {
+          "id": "27a318e5-c82a-427c-b3e9-56bee877266e",
+          "text": "the transcript, and since you are working on voice, you might be knowing the cost from ASR. Right? Transcriptions, like,",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 151.35000002,
+          "end": 156.37000002000002,
+          "translations": []
+        },
+        {
+          "id": "42b879c3-dcde-4996-bf9a-8fc0525f9aa2",
+          "text": "per",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 121.33376001999999,
+          "end": 121.83376001999999,
+          "translations": []
+        },
+        {
+          "id": "539d3e28-d48d-4e06-9fe3-7fb0aa750261",
+          "text": "month? Yeah. Because it's an always on stuff.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 157.97001002000002,
+          "end": 160.13000002,
+          "translations": []
+        },
+        {
+          "id": "47f08aa7-e5ab-4006-a6f6-f2336b3b9f39",
+          "text": "So",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 160.13000002,
+          "end": 160.37000002000002,
+          "translations": []
+        },
+        {
+          "id": "a87c3d08-e9a3-4e11-b5d9-3e9692a2d739",
+          "text": "like,",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 124.37375002,
+          "end": 124.62375002,
+          "translations": []
+        },
+        {
+          "id": "33d201c8-62d3-4fb4-bd3a-29363c91b413",
+          "text": "Why",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 124.86376001999999,
+          "end": 125.36376001999999,
+          "translations": []
+        },
+        {
+          "id": "2384e008-7b79-49e9-bdb3-8590e5276cdc",
+          "text": "b b?",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 126.21375002,
+          "end": 163.86500002,
+          "translations": []
+        },
+        {
+          "id": "d834d958-459e-47c1-a151-5554bf34bbc4",
+          "text": "How do I get?",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 132.26375002,
+          "end": 168.92000002,
+          "translations": []
+        },
+        {
+          "id": "c2b1e29b-b3e6-4814-b133-69902827db04",
+          "text": "Yeah. Use the this thing.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 135.42374002,
+          "end": 173.07000002,
+          "translations": []
+        },
+        {
+          "id": "5d7dd5a5-f4c4-45f1-9c20-c5eb38ea66e4",
+          "text": "You",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 137.31375002000001,
+          "end": 137.39376002,
+          "translations": []
+        },
+        {
+          "id": "1c5b7dd8-a7e4-4413-9e4a-502498cf475c",
+          "text": "have their hardware as",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 173.39001002,
+          "end": 174.12000002000002,
+          "translations": []
+        },
+        {
+          "id": "0e866a87-a2a2-4b2c-b078-afd72b4870a8",
+          "text": "well?",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 174.12000002000002,
+          "end": 174.37000002000002,
+          "translations": []
+        },
+        {
+          "id": "023faecc-d655-4ebd-ab55-036cf6268f8b",
+          "text": "No. Why even if I have to wire on it?",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 138.61376002,
+          "end": 176.55000002,
+          "translations": []
+        },
+        {
+          "id": "cf1d64f3-c77d-4b3d-b8d2-6a77912daad5",
+          "text": "Okay. They",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 140.79375002,
+          "end": 177.11000002,
+          "translations": []
+        },
+        {
+          "id": "46fb756b-859e-4bdb-bc9c-bf1c8837009c",
+          "text": "use",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 177.11000002,
+          "end": 177.36000002,
+          "translations": []
+        },
+        {
+          "id": "49ec47ec-a8a7-4e07-a87e-a46d7c63f8fa",
+          "text": "they give hardware for all regards to the But",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 141.52375002,
+          "end": 144.01375002,
+          "translations": []
+        },
+        {
+          "id": "71c156c9-42e3-4c9d-a25e-fcf536fdde80",
+          "text": "I",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 180.39000002,
+          "end": 180.58499002000002,
+          "translations": []
+        },
+        {
+          "id": "7964cf2f-86dd-4668-a18c-1b0f0ffbf015",
+          "text": "feel like it's",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 180.58499002000002,
+          "end": 181.28000002000002,
+          "translations": []
+        },
+        {
+          "id": "467145f1-f1af-49ed-be85-2a961cc83ef9",
+          "text": "all",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 181.28000002000002,
+          "end": 181.69000002,
+          "translations": []
+        },
+        {
+          "id": "3dde05a2-5cd8-4b1c-a3a4-6a3136210d83",
+          "text": "I need this only when capture serial data? Yeah.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 145.85375002,
+          "end": 186.47000002000001,
+          "translations": []
+        },
+        {
+          "id": "90d66fd6-e484-4d97-804a-a033527262bc",
+          "text": "Yeah. This is something that I have in building. So the biggest problem that we were facing with marketing is, like, we used to do boosting with Twitter, some of the things. Then the Facebook meta ads and stuff. But nowadays, everyone has their ad blockers on their",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 186.47000002000001,
+          "end": 202.06000002000002,
+          "translations": []
+        },
+        {
+          "id": "81ed5115-e16e-40ae-9fd7-5bd96b2c60f4",
+          "text": "system.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 166.30376002,
+          "end": 166.78376002000002,
+          "translations": []
+        },
+        {
+          "id": "4bf85f3d-9fcd-47b0-8849-a20795607080",
+          "text": "So it is not making any",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 202.78001002000002,
+          "end": 204.22001002000002,
+          "translations": []
+        },
+        {
+          "id": "7ed99a03-3d82-4277-a6ee-fe0ace9a3d07",
+          "text": "sense. Like,",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 204.22001002000002,
+          "end": 204.67000002,
+          "translations": []
+        },
+        {
+          "id": "ab04e870-dafe-488e-8f2b-f7a3f87c4ceb",
+          "text": "boosting from there. So there are other activities which we can",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 168.91376002,
+          "end": 207.39001002,
+          "translations": []
+        },
+        {
+          "id": "20981372-4527-46d6-8ebd-985ebcebb584",
+          "text": "do",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 207.39001002,
+          "end": 207.89001002,
+          "translations": []
+        },
+        {
+          "id": "e59036b6-2084-4e8a-bd2e-31b196eb120f",
+          "text": "to engage",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 208.03001002000002,
+          "end": 208.51000002,
+          "translations": []
+        },
+        {
+          "id": "0698167e-fde7-4d34-a427-e1ddb0b7c13e",
+          "text": "more and more",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 208.51000002,
+          "end": 209.01000002,
+          "translations": []
+        },
+        {
+          "id": "b6fa457e-d636-471b-8e96-1fd92d006fee",
+          "text": "we This product. I have started building this since August 24. I shipped Yeah. I shipped it",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 173.50875002,
+          "end": 222.21000002000002,
+          "translations": []
+        },
+        {
+          "id": "43155519-844e-4592-988c-123b8f867756",
+          "text": "out. I",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 222.21000002000002,
+          "end": 222.81000002000002,
+          "translations": []
+        },
+        {
+          "id": "883db398-9e25-4845-8d41-adc2758f59c1",
+          "text": "know this guy.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 222.81000002000002,
+          "end": 223.59000002000002,
+          "translations": []
+        },
+        {
+          "id": "b8f43dda-0ef7-4938-88e9-6f8e85c3f284",
+          "text": "Foamy guy.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 188.46375002000002,
+          "end": 224.85000002,
+          "translations": []
+        },
+        {
+          "id": "7f1d0d3d-325e-4fa4-a94e-b95c43940349",
+          "text": "Nick. Yeah.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 189.22875002,
+          "end": 190.34375002000002,
+          "translations": []
+        },
+        {
+          "id": "5c2b9d27-b84e-490d-bb83-375a585d8c54",
+          "text": "And",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 193.86375002,
+          "end": 194.33375002,
+          "translations": []
+        },
+        {
+          "id": "ecf14355-b589-446b-b8ee-36c7321941be",
+          "text": "I I",
+          "speaker": "SPEAKER_3",
+          "speaker_id": 3,
+          "is_user": false,
+          "person_id": null,
+          "start": 194.33375002,
+          "end": 230.99000002,
+          "translations": []
+        },
+        {
+          "id": "31601513-b2f5-488d-855b-f7b4db4abaa8",
+          "text": "met Nick in September twenty four, when I started building this. They were also like on that same path of It has",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 195.23375002,
+          "end": 237.94999002,
+          "translations": []
+        },
+        {
+          "id": "7506082e-cbb9-4781-b1e7-79387cc64adc",
+          "text": "ecosystem of developers.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 237.94999002,
+          "end": 239.33000002,
+          "translations": []
+        },
+        {
+          "id": "ead66825-d9ab-4655-ad27-c2b0e379bddb",
+          "text": "Yeah. Yeah. And he has current",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 203.71375002000002,
+          "end": 240.93000002000002,
+          "translations": []
+        },
+        {
+          "id": "1207057f-f5f4-4282-8cc6-ec2ecb5c38bb",
+          "text": "Discord.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 241.15000002000002,
+          "end": 241.31000002000002,
+          "translations": []
+        },
+        {
+          "id": "f50995ae-7cd1-41db-be5d-1979ea612b86",
+          "text": "Bundled in a platform. We we are we are",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 208.98375002,
+          "end": 246.56000002000002,
+          "translations": []
+        },
+        {
+          "id": "28d4172c-717b-4e43-94a7-3b585c80e14f",
+          "text": "our majority of the business is coming from why entire",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 210.88376002,
+          "end": 251.90000002000002,
+          "translations": []
+        },
+        {
+          "id": "0e43d5ee-df24-4590-b429-c9b127fa51b9",
+          "text": "data",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 251.90000002000002,
+          "end": 251.98000002,
+          "translations": []
+        },
+        {
+          "id": "bbe25c88-01f1-4f33-80fc-88a333d74242",
+          "text": "Is it, like,",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 216.94376002,
+          "end": 253.66000002,
+          "translations": []
+        },
+        {
+          "id": "391d31c0-a46a-4567-a9c4-fc1ec78d6fb3",
+          "text": "not",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 253.66000002,
+          "end": 253.88000002,
+          "translations": []
+        },
+        {
+          "id": "1abbec03-ce51-452d-ada0-a9539743a488",
+          "text": "It basically",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 218.68375002000002,
+          "end": 255.64000002000003,
+          "translations": []
+        },
+        {
+          "id": "9f01bd0f-86db-499f-bf75-8e5b525554e6",
+          "text": "data analytics for you guys to",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 220.60375002,
+          "end": 257.88000001999995,
+          "translations": []
+        },
+        {
+          "id": "85ee944a-1e1d-4448-b3fd-c0f979c1bc03",
+          "text": "understand.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 257.88000001999995,
+          "end": 258.38000001999995,
+          "translations": []
+        },
+        {
+          "id": "19f2cd6e-e138-4f6c-a4a1-ad76394c6d98",
+          "text": "So I'm basically encrypting that data. So for me, I will not be able",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 223.60375002,
+          "end": 227.34375002000002,
+          "translations": []
+        },
+        {
+          "id": "9f7d50b6-3f53-4371-b30d-7e7cced2a549",
+          "text": "to",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 263.34000002,
+          "end": 263.42000002,
+          "translations": []
+        },
+        {
+          "id": "4b37b3e1-ffea-4492-ac63-00e505e59c1c",
+          "text": "analyze the data,",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 263.42000002,
+          "end": 263.91000002,
+          "translations": []
+        },
+        {
+          "id": "4a9cae6c-f859-4829-bb5d-d388cc06653c",
+          "text": "but",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 263.91000002,
+          "end": 264.08000002,
+          "translations": []
+        },
+        {
+          "id": "81a269ca-d1a7-40c3-a332-d35aee7607af",
+          "text": "for you, of course, you can use your context on your analytics and stuff for consumer. For enterprise there are like CIOs involving to collect this data all the day.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 228.32375002000003,
+          "end": 274.19000001999996,
+          "translations": []
+        },
+        {
+          "id": "45bf2be0-e3b3-4058-9f55-4f4317660669",
+          "text": "Stuff.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 239.63375001999998,
+          "end": 240.03375002,
+          "translations": []
+        },
+        {
+          "id": "baf025c9-39e4-4d47-96e7-e6f19f01604f",
+          "text": "So we are we are seeing the use cases there.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 276.03000002,
+          "end": 278.26998002,
+          "translations": []
+        },
+        {
+          "id": "fa6d0996-4143-4d81-98bc-28dd0d419eed",
+          "text": "Okay.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 278.26998002,
+          "end": 278.70000002,
+          "translations": []
+        },
+        {
+          "id": "81c0d44b-e945-47a8-87d4-6b3418e9b8e2",
+          "text": "Alright.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 244.40377002000002,
+          "end": 244.90377002000002,
+          "translations": []
+        },
+        {
+          "id": "b4fa092d-0608-4d62-af12-08b19a413b71",
+          "text": "Transparent, you did it",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 281.20000002,
+          "end": 282.48000002,
+          "translations": []
+        },
+        {
+          "id": "e61f59ba-08b1-4669-9b35-0ff18f6b2c76",
+          "text": "I",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 247.38375001999998,
+          "end": 247.46375002000002,
+          "translations": []
+        },
+        {
+          "id": "34136657-7909-4d93-a54d-87a5acd5a10f",
+          "text": "think when it scrolls, like, it should be Yeah. Changing.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 283.46000002,
+          "end": 286.04000002,
+          "translations": []
+        },
+        {
+          "id": "7cf612d9-8755-4f6e-aa6f-f204f7a73eff",
+          "text": "It should maintain some",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 250.65375002000002,
+          "end": 288.01998002,
+          "translations": []
+        },
+        {
+          "id": "085d945f-e0e4-450e-bddd-f7fefac6fcfc",
+          "text": "background. Background color? Yeah. Yeah. That that's great. Right? Like, you should be giving the input side stuff. Yeah.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 288.01998002,
+          "end": 298.85998001999997,
+          "translations": []
+        },
+        {
+          "id": "e889e46b-c85e-4482-8149-d09093b7472c",
+          "text": "But",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 298.85998001999997,
+          "end": 298.94000001999996,
+          "translations": []
+        },
+        {
+          "id": "c29fbae0-370a-412c-906f-0c8743c3e0e9",
+          "text": "it's nice. Yeah. So this is something that I have I have to",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 298.94000001999996,
+          "end": 302.87000001999996,
+          "translations": []
+        },
+        {
+          "id": "4e0cd884-5a77-426b-804a-d52fe4ac22ec",
+          "text": "So how much you",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 267.35375001999995,
+          "end": 304.57998002,
+          "translations": []
+        },
+        {
+          "id": "634c6912-a820-4450-b2c9-787aa3561021",
+          "text": "Yeah. I haven't",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 271.8837500199999,
+          "end": 308.94000001999996,
+          "translations": []
+        },
+        {
+          "id": "38661637-4a96-4a65-92de-1364644359ef",
+          "text": "ARR of half of it. 100. So, like, out of buying the product, not subscription. Right?",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 273.36375001999994,
+          "end": 317.48000002,
+          "translations": []
+        },
+        {
+          "id": "acd68843-fbc8-4ddc-b137-ebecf73602ae",
+          "text": "The enterprise are the license based stuff. But with the user, that's like $70. This is full time.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 283.05375002,
+          "end": 339.06000001999996,
+          "translations": []
+        },
+        {
+          "id": "89ca8231-6fff-4ea8-9ab5-87f5c2ab4e0e",
+          "text": "How",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 304.02373001999996,
+          "end": 304.10375001999995,
+          "translations": []
+        },
+        {
+          "id": "a09a8d70-354c-4a8c-b145-f5af13580be0",
+          "text": "many",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 340.10000002,
+          "end": 340.41998001999997,
+          "translations": []
+        },
+        {
+          "id": "9d35cf1e-aa2a-477b-80b7-35fd3abd98cc",
+          "text": "hours?",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 340.41998001999997,
+          "end": 340.91998001999997,
+          "translations": []
+        },
+        {
+          "id": "d17a6fc5-2745-42b9-ac78-92507e57bd4d",
+          "text": "No. I have to we have three cofounders, and I have five employees. We are eight people. In India. I have a one guy meaning making",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 306.23375001999995,
+          "end": 351.38000001999995,
+          "translations": []
+        },
+        {
+          "id": "3254b394-d049-4b95-8eba-4cee50fd31e2",
+          "text": "I thought no one is doing, but I've started researching this",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 315.46375001999996,
+          "end": 356.08000002,
+          "translations": []
+        },
+        {
+          "id": "318a33e5-a503-471b-9a00-dd3de96fc082",
+          "text": "They're building a platform. The problem with the they're basically building a platform that that's their",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 328.55375002,
+          "end": 371.19000001999996,
+          "translations": []
+        },
+        {
+          "id": "4e44fe01-16b6-4581-8171-370f57cd2dfb",
+          "text": "understanding.",
+          "speaker": "SPEAKER_3",
+          "speaker_id": 3,
+          "is_user": false,
+          "person_id": null,
+          "start": 336.80373001999993,
+          "end": 337.30373001999993,
+          "translations": []
+        },
+        {
+          "id": "a2a13cb1-4ea0-484b-99d0-7b0fcd7df5ed",
+          "text": "Who are building on top of this. So there is one startup building just content creators, these things. So he's building an app that basically, like, collects data from this. And then it basically generates content for them and stuff. So that's one more thing. And since they are using doing it full time, they they are, like, funded by this thing called e w o r. That's in, that's basically YC of Europe. And they are getting good traction of it. So they are using this. There is one more company here in US who are building like an AIBC. So what they have",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": false,
+          "person_id": null,
+          "start": 434.95432398,
+          "end": 471.104324,
+          "translations": []
+        },
+        {
+          "id": "a379220c-efff-4c3c-ae45-39bcdae593c0",
+          "text": "the founder or the this super early stage founders. They just analyze their conversation. And based on just conversation, look at tech, they invest in them. So Yeah. His endpoints are also too. You can like, about his ideology on selling the data. But, the understanding of them is, like, he's pretty much using the investors' money as of now for for",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 434.608074,
+          "end": 509.244324,
+          "translations": []
+        },
+        {
+          "id": "fd976f38-466c-4721-aad3-4b3c8bb9d887",
+          "text": "for",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 474.288074,
+          "end": 474.448074,
+          "translations": []
+        },
+        {
+          "id": "219e5057-48ef-4d50-9bfc-bfb00f3d335d",
+          "text": "transcribing and stuff. So we get, like, Deepgram. So we I'm also, like, official partner with Deepgram. So we get $50,000 credit Mhmm. Grants and stuff. So it's it's good to go till some customer, and then it's yearly. Making sense to, yeah, uphold those stuff. So, yeah, we we can definitely play play around to go to market, but once we are in market, we do it. Even b dot computer after first year, they are gonna charge 15 or $20 a year. Year. Compete. Humanpen? Humanpen is like acquired by it's limitless. Yeah. Limitless Limitless it's basically charging $400 a year. From day one.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 510.444324,
+          "end": 559.804324,
+          "translations": []
+        },
+        {
+          "id": "5cae63da-f96d-4cd6-8110-7e9d71af8fd1",
+          "text": "I believe",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 559.964324,
+          "end": 560.444324,
+          "translations": []
+        },
+        {
+          "id": "6a7289f3-ab68-456b-9b2a-3f28e13a5d96",
+          "text": "okay. On device, I think, everybody",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 560.764324,
+          "end": 562.364329,
+          "translations": []
+        },
+        {
+          "id": "d5e973b3-da5d-4c19-aa99-a08417f6fd16",
+          "text": "must do",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 562.364329,
+          "end": 562.6843240000001,
+          "translations": []
+        },
+        {
+          "id": "f96be118-61b4-4571-b4ab-c1d870e331a2",
+          "text": "this. On",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 562.6843240000001,
+          "end": 528.038074,
+          "translations": []
+        },
+        {
+          "id": "fe88c9a9-1716-4926-ae06-dc7e80279c45",
+          "text": "device.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 564.034324,
+          "end": 564.534324,
+          "translations": []
+        },
+        {
+          "id": "1072bf54-74bf-4a83-9d50-abe1b4919a36",
+          "text": "So so the thing, everyone is betting on is not just, like, so trans if someone just wants, like, note taking as a use case, I would I would really suggest that not to use this. Of course, insurance companies are there who are",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 529.368074,
+          "end": 577.554324,
+          "translations": []
+        },
+        {
+          "id": "48474390-5364-4fb9-9f93-ac9f96fe9f96",
+          "text": "using",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 577.554324,
+          "end": 577.8143239999999,
+          "translations": []
+        },
+        {
+          "id": "9588d081-4ee4-417f-842f-ec2e3f5571ba",
+          "text": "this for their offline, conversion.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 542.2980640000001,
+          "end": 580.234324,
+          "translations": []
+        },
+        {
+          "id": "ec0c406f-3eb7-4f46-aabd-76e99a28cafe",
+          "text": "If",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 581.494314,
+          "end": 581.654314,
+          "translations": []
+        },
+        {
+          "id": "bf7c376a-81e9-4382-bddd-66a828846787",
+          "text": "you feel that you are always online, I would I would definitely use Granola for that. Right? If I I don't wanna invest in hardware. Yeah. But if someone wants their always on AI stuff, always on data. For example, I am collecting this data since last six, seven months, my LLMs are more personalized because knows more context about me. So that's there. We do have an internal tool. So there is this thing called OnRem. I'll show you So yeah. The big So it it also collects, like, data from my multiple chats and stuff and it's",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 581.654314,
+          "end": 617.094334,
+          "translations": []
+        },
+        {
+          "id": "3dc97bff-06c6-44d2-b687-fa51582bc316",
+          "text": "like",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 617.094334,
+          "end": 617.594334,
+          "translations": []
+        },
+        {
+          "id": "22cb417b-5856-4a1f-ad44-9fcf6de6228a",
+          "text": "yeah.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 582.408064,
+          "end": 582.908064,
+          "translations": []
+        },
+        {
+          "id": "238d227b-783f-454a-b9ea-627fec658a3b",
+          "text": "Always on device. Has a job is for you.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 583.478074,
+          "end": 622.804324,
+          "translations": []
+        },
+        {
+          "id": "e79b1587-7bb4-4587-af4c-c033fc0c0429",
+          "text": "Yeah. And it makes",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 587.298074,
+          "end": 624.444324,
+          "translations": []
+        },
+        {
+          "id": "1f5455ad-d425-4509-b660-c52112b6c9fd",
+          "text": "sense",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 624.444324,
+          "end": 624.944324,
+          "translations": []
+        },
+        {
+          "id": "9f1f5eeb-c590-4d34-a7ba-cbbee3e8fee6",
+          "text": "it makes sense when you actually integrate with your",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 589.118074,
+          "end": 628.094324,
+          "translations": []
+        },
+        {
+          "id": "9df6b5da-bef4-4a36-ac32-95d7dfaa6549",
+          "text": "Ecosystem. I do have ecosystems. So, like, for example, if we are talking right now, I tell you, let's meet tomorrow. So in your calendar Yeah. It just adds in my calendar right now. It does to do for me. It does Even",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 592.838074,
+          "end": 638.724334,
+          "translations": []
+        },
+        {
+          "id": "62651b9b-7e73-40af-bc40-ec8d7ce346e3",
+          "text": "like suppose like",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 638.724334,
+          "end": 640.239324,
+          "translations": []
+        },
+        {
+          "id": "1d9ac976-e3dd-4fd7-b29e-bc0d2a5b8751",
+          "text": "Yeah. For example, if you see, these are the memory memories that gets collected, not only from body, but from chat, JPG, from Claude, Okay. So so I'm just orchestrating a memory, and we are selling this as a memory OS",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 607.118084,
+          "end": 653.409334,
+          "translations": []
+        },
+        {
+          "id": "9ea2e517-a174-40ab-acb7-13bfdb43b30e",
+          "text": "to",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 653.409334,
+          "end": 653.654324,
+          "translations": []
+        },
+        {
+          "id": "5a4c080c-159d-4122-8570-a8193177d2c6",
+          "text": "enterprises and stuff. So these are the testings that we do.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 618.208074,
+          "end": 656.554324,
+          "translations": []
+        },
+        {
+          "id": "8402bac3-5974-48db-8d72-4091172189a0",
+          "text": "Yeah.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 656.554324,
+          "end": 656.7143140000001,
+          "translations": []
+        },
+        {
+          "id": "48a3c88b-4ac5-4568-aa5f-5d0ab346df79",
+          "text": "It has potential, but I feel",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 656.7143140000001,
+          "end": 658.3143239999999,
+          "translations": []
+        },
+        {
+          "id": "4801a2f2-ebc8-4707-9a11-d8e5814e3815",
+          "text": "like what",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 658.3143239999999,
+          "end": 623.738074,
+          "translations": []
+        },
+        {
+          "id": "b82dcb67-79b1-495a-b9b3-ac227a0e7a67",
+          "text": "Copenay is doing with the new hardware device. I think straight. They",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 623.818074,
+          "end": 630.418074,
+          "translations": []
+        },
+        {
+          "id": "10eac254-bd12-47c4-98c9-6af1497e5305",
+          "text": "are gonna be",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 666.4143240000001,
+          "end": 667.474324,
+          "translations": []
+        },
+        {
+          "id": "c8e07b79-7b21-49d0-aa7d-6bfef9ad61a4",
+          "text": "let's see. Let's say we we are like we are that A bigger space? Yeah.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 631.868074,
+          "end": 635.468074,
+          "translations": []
+        },
+        {
+          "id": "5489372e-3498-494d-8ace-7670b65e674e",
+          "text": "Of course.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 671.464324,
+          "end": 671.9143240000001,
+          "translations": []
+        },
+        {
+          "id": "78f92db7-e2e7-4bab-8906-ea3da4e591eb",
+          "text": "Yeah.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 637.338074,
+          "end": 637.698074,
+          "translations": []
+        },
+        {
+          "id": "3489902d-50a5-49b1-8328-6201d7e7ccfe",
+          "text": "Even",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 637.858074,
+          "end": 638.358074,
+          "translations": []
+        },
+        {
+          "id": "36103b71-7c72-4a6c-b486-8d42744f62b3",
+          "text": "In getting a traction in business out of India's stuff, for this sort of products, At least, like, saying that, hey, you know what? I'll charge you for a device. At $10,000. I feel like",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 649.738074,
+          "end": 695.364324,
+          "translations": []
+        },
+        {
+          "id": "98a9c95e-1f71-49e8-ba42-251a09e54145",
+          "text": "selling",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 659.768074,
+          "end": 660.268074,
+          "translations": []
+        },
+        {
+          "id": "69529e79-d1f2-4f0f-8916-01321c5078bc",
+          "text": "this device like",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 696.4043240000001,
+          "end": 661.698074,
+          "translations": []
+        },
+        {
+          "id": "92695119-cbba-40b0-924e-4821f32fe954",
+          "text": "this,",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 697.694324,
+          "end": 698.194324,
+          "translations": []
+        },
+        {
+          "id": "97bdf280-ed87-4bd0-94ca-1e4445267dfa",
+          "text": "where it's just record and",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 662.668074,
+          "end": 700.114324,
+          "translations": []
+        },
+        {
+          "id": "53a19a38-bd98-4b7c-b68f-08a393e5632c",
+          "text": "play. Sense.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 700.114324,
+          "end": 665.848074,
+          "translations": []
+        },
+        {
+          "id": "d73680c4-d8f8-48ab-af0a-4c4f33bf92db",
+          "text": "Huddl has some connection to my data",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 666.248074,
+          "end": 668.438074,
+          "translations": []
+        },
+        {
+          "id": "fc8e0a09-c272-40aa-b1fb-a55fc8e6608d",
+          "text": "analytics.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 704.4343240000001,
+          "end": 704.9343240000001,
+          "translations": []
+        },
+        {
+          "id": "57621839-1fdc-4e8a-8109-61ff6a09c604",
+          "text": "Everyone",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 705.154304,
+          "end": 705.234324,
+          "translations": []
+        },
+        {
+          "id": "87e7487a-cd20-4970-844d-59d6257178e4",
+          "text": "will be making that because they want to make a proper you know about blog, So Claudia is the leading company in all this thing. The hardware, and blah blah. Okay. And Claude is actually on an ARR of, like, approximately 30,000,000, and they have done revenue total revenue till date. It's, like, been, like, two years. They have been",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 705.234324,
+          "end": 725.954344,
+          "translations": []
+        },
+        {
+          "id": "58ed0d30-5278-45ab-863d-9af330fbbd28",
+          "text": "selling",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 725.954344,
+          "end": 726.1543240000001,
+          "translations": []
+        },
+        {
+          "id": "8cabeba9-9736-47eb-874a-87cd9c177c9e",
+          "text": "the products. The total revenue that they have made is approximately $1.61 $70,000,000. Gross. No. There are two two devices. One is the Note PIN that's that latest device. Yeah. Now I got Yeah. That one. Yeah. So this device, have almost sold it to one main users.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 690.158074,
+          "end": 751.3343239999999,
+          "translations": []
+        },
+        {
+          "id": "e0f8cb2e-f783-4feb-8cea-734b8efa5d91",
+          "text": "It's about transcribing.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 751.3343239999999,
+          "end": 752.394324,
+          "translations": []
+        },
+        {
+          "id": "9d8adec7-d420-4ef2-adf7-e6691d736c4b",
+          "text": "It's just like note taking as",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 716.7180740000001,
+          "end": 754.1543240000001,
+          "translations": []
+        },
+        {
+          "id": "e456ef10-3622-4d24-b32f-b858e946b2b8",
+          "text": "a",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 754.1543240000001,
+          "end": 754.4243240000001,
+          "translations": []
+        },
+        {
+          "id": "74081036-1439-4ed3-9356-307eb88cc4e5",
+          "text": "Trans yeah. If it's load taking, it that means it's transcribing. Right?",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 720.298074,
+          "end": 759.004324,
+          "translations": []
+        },
+        {
+          "id": "7945a68b-c39a-4cf5-bcc8-36c3bcd792f0",
+          "text": "Yeah. So Yeah. Yeah. I",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 723.7280740000001,
+          "end": 761.354324,
+          "translations": []
+        },
+        {
+          "id": "d8a6150a-9455-4421-8089-e18b43b7870f",
+          "text": "see that Amazon mostly Yeah. So just just see just assume that they have this. 1,000,000 users and if they are just selling one sixty dollars Right? So I of course, they're not getting this much, but let's say",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 761.354324,
+          "end": 772.314304,
+          "translations": []
+        },
+        {
+          "id": "8352129a-69e9-49bb-949a-9fbd774a8196",
+          "text": "Yeah. Yeah. I'm not pushing on this. Their subscription.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 772.394324,
+          "end": 774.514324,
+          "translations": []
+        },
+        {
+          "id": "b134837a-df44-45fe-bad1-e3c0e326caf1",
+          "text": "Everyone has to if if it's transcription, they have to be subscription. I really",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 774.6543240000001,
+          "end": 778.794324,
+          "translations": []
+        },
+        {
+          "id": "2dbde149-71f6-444c-adbe-3b34a860c48f",
+          "text": "not",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 743.638074,
+          "end": 743.9580739999999,
+          "translations": []
+        },
+        {
+          "id": "f042446f-4966-4179-ab5a-cbab15b4929a",
+          "text": "see your company not coming up with some subscript or is there, like, charging so much upfront, like, $607. That basically taking care of the customers like I've already. And it's not gone",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 744.4380739999999,
+          "end": 789.9743040000001,
+          "translations": []
+        },
+        {
+          "id": "271d9677-dfbd-4f3f-9d16-2fa4d08c44b1",
+          "text": "over.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 789.9743040000001,
+          "end": 790.3143239999999,
+          "translations": []
+        },
+        {
+          "id": "384d8c6e-bb96-43c0-b52a-300f050df8d5",
+          "text": "Because transcriptions ASRs are, like, that you have your own ASR stack along with it.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 754.6380939999999,
+          "end": 795.744324,
+          "translations": []
+        },
+        {
+          "id": "6a6ae704-9f4f-4713-9d9b-7a94e879ecb4",
+          "text": "Company that you're",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 760.2280740000001,
+          "end": 796.864324,
+          "translations": []
+        },
+        {
+          "id": "e4b513a7-1a11-4787-9caa-e57f5a570980",
+          "text": "working",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 796.864324,
+          "end": 797.1843240000001,
+          "translations": []
+        },
+        {
+          "id": "0c7f7055-7175-44ad-ad92-cdaa5c53b260",
+          "text": "on.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 797.1843240000001,
+          "end": 797.6843240000001,
+          "translations": []
+        },
+        {
+          "id": "dadc3ceb-5f45-4e99-bc34-d8792f27cfdb",
+          "text": "Is basically speech to text.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 763.348054,
+          "end": 801.364324,
+          "translations": []
+        },
+        {
+          "id": "7faa23fc-76bc-477e-b9dd-58ec1dfb0ff1",
+          "text": "No.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 766.6780739999999,
+          "end": 767.1780739999999,
+          "translations": []
+        },
+        {
+          "id": "6fd49cf8-ef84-4b5c-89d6-e0a8eb7654f5",
+          "text": "Because that's the that's the Yeah. That's the So we are using the model",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 771.6580739999999,
+          "end": 811.0143439999999,
+          "translations": []
+        },
+        {
+          "id": "d140ad00-20f6-474b-ac91-2dd7321c96da",
+          "text": "from Amazon. So",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 811.0143439999999,
+          "end": 776.7380740000001,
+          "translations": []
+        },
+        {
+          "id": "a0e7c2e9-690c-4dc5-9c10-b6b35cd55b84",
+          "text": "for example, let's say, I'm using for, like, ten hours transcription, it costs me approximately, like, $400 a year.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 812.794324,
+          "end": 820.4043240000001,
+          "translations": []
+        },
+        {
+          "id": "d555a5ef-b0be-4fc1-94ec-6853268cb9b4",
+          "text": "For a user. It's me.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 785.048094,
+          "end": 786.788074,
+          "translations": []
+        },
+        {
+          "id": "1802f096-9dd7-4cd6-9eb8-15e4c8a7f78f",
+          "text": "Just imagine that Okay. Now let's say I just post it on my server and do some cost cutting, even then it's gonna be like two one No. I haven't. It's at five. Right? Yeah.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 787.4780539999999,
+          "end": 837.714324,
+          "translations": []
+        },
+        {
+          "id": "3bd2f4ce-1451-4a40-9534-85d143f3beaf",
+          "text": "Cool.",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 803.118074,
+          "end": 803.5180740000001,
+          "translations": []
+        }
+      ],
+      "plugins_results": []
+    },
+    "sentiment": 0.008333333333333333,
+    "sentiment_label": "neutral",
+    "topics": [
+      "technology",
+      "product",
+      "general"
+    ],
+    "keywords": [
+      "ai",
+      "product",
+      "services",
+      "transcription",
+      "ad",
+      "ad blockers",
+      "ai marketing",
+      "ai transcription",
+      "analytics",
+      "blockers"
+    ],
+    "quality_score": 1.0,
+    "engagement_score": 0.6,
+    "merkle_root": "706d8656fb119c4d6b506f15396929e4edb2d97c0c2f7eea08941035c9ed5b3e",
+    "created_at": "2025-10-04T23:23:45"
+  },
+  {
+    "id": 11,
+    "user_id": "buddi_user",
+    "anchor_id": "8",
+    "token_id": "8",
+    "summary": {
+      "text": "The conversation revolves around the implementation and development of a workflow to orchestrate multiple Twitter accounts for news dissemination and lead generation. The user has created a system that fetches trending data from platforms like Twitter, LinkedIn, and Reddit to generate content and images, which are then posted on Twitter. There is also an AB testing feature for posting variations. Additionally, the user is working on a product for image generation and product photography workflow, with integration into Slack for messaging.",
+      "content": "The conversation revolves around the implementation and development of a workflow to orchestrate multiple Twitter accounts for news dissemination and lead generation. The user has created a system that fetches trending data from platforms like Twitter, LinkedIn, and Reddit to generate content and images, which are then posted on Twitter. There is also an AB testing feature for posting variations. Additionally, the user is working on a product for image generation and product photography workflow, with integration into Slack for messaging.",
+      "title": "Twitter Automation and Image Generation Workflow",
+      "emoji": "\ud83e\udd16",
+      "category": "technology"
+    },
+    "actions": [
+      {
+        "description": "Open up the Twitter automation workflow for others to use.",
+        "completed": false,
+        "deleted": false
+      },
+      {
+        "description": "Complete testing of image generation and product photography workflow.",
+        "completed": false,
+        "deleted": false
+      },
+      {
+        "description": "Integrate the workflow into Slack for messaging.",
+        "completed": false,
+        "deleted": false
+      }
+    ],
+    "conversation_metadata": {
+      "user_id": "buddi_user",
+      "created_at": "2025-08-10T20:59:01.412952+00:00",
+      "finished_at": "2025-08-10T21:02:15.337269+00:00",
+      "language": "en",
+      "source": "friend",
+      "visibility": "private",
+      "status": "completed",
+      "discarded": false,
+      "transcript_segments": [
+        {
+          "id": "c64cb1e4-69c2-48fd-be7b-e52f0fe994f8",
+          "text": "What's up? How are you? I was able to make one, workflow that where we can orchestrate multiple Twitter accounts. And we can just float around news, getting news. So it the idea is start, like, yeah. I I just use unit end for for the automation.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 0.0,
+          "end": 56.93624999999997,
+          "translations": []
+        },
+        {
+          "id": "f0b50b2a-f47c-4f4e-947b-d73e63434218",
+          "text": "So what I did is, like, I'm fetching multiple data from what's currently trending on Twitter, LinkedIn, Reddit, just trying",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 21.56002000000001,
+          "end": 64.18624999999997,
+          "translations": []
+        },
+        {
+          "id": "2d1fe0a4-639c-4a9e-aeae-2a55be5a2fd7",
+          "text": "to grow",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 64.18624999999997,
+          "end": 64.68624999999997,
+          "translations": []
+        },
+        {
+          "id": "43b96b57-84a2-48d6-820f-93e06ddf3162",
+          "text": "that. See, like, what's the competitive stuff. So all the context given, once the context is there, it goes starts generating the and both Also, it generates And, like, once it generates image, physically poached in my in my",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 28.68999999999994,
+          "end": 81.60624999999999,
+          "translations": []
+        },
+        {
+          "id": "ec8d8346-e71a-4b2e-89c0-f989a45b62ed",
+          "text": "Twitter.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 45.610000000000014,
+          "end": 46.110000000000014,
+          "translations": []
+        },
+        {
+          "id": "f4e7fc8b-edc1-4012-a219-343b19a8406a",
+          "text": "Now what I can do, like, I can I can connect multiple Twitter accounts to do AB testing post the variations of multiple things? So the idea is to fetch views and make leads so on or account so on so that over the time it's starts to experience. Generally, I have seen that a pre consistent",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 46.42999999999995,
+          "end": 100.99385000000001,
+          "translations": []
+        },
+        {
+          "id": "ae4da806-dd95-4bb8-bff1-ccac4ab81d7f",
+          "text": "Talk. The one whom you really wanna target, they are not gonna see your ads. We can rather try something like this to to be So just trying I guess, just try hacking with the algorithm. And Yeah. So it's it's basically for my own use case. But I would be happy to open up stuff here. Yeah. And then once have. So I'm also working on one more product, image generation flow. So after this, like, I'm almost done testing with not make more further accounts.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": false,
+          "person_id": null,
+          "start": 116.728763,
+          "end": 153.248763,
+          "translations": []
+        },
+        {
+          "id": "ed3f3352-38d6-464f-ac90-a412eb68acb4",
+          "text": "from that, I'll also start generating some product photography. Workflow. So I think we can also talk about so what happened is, like, there are some accounts that are basically meeting the admin where you can really flow Nice. That's the idea of not now. And it is did some integration on Slack and stuff. So I can do, like, go and message stuff. So rather than building",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 116.512513,
+          "end": 187.868763,
+          "translations": []
+        },
+        {
+          "id": "8beec3c0-53b9-4680-9ddc-ec7e4fa238e2",
+          "text": "some",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 187.868763,
+          "end": 188.058763,
+          "translations": []
+        },
+        {
+          "id": "9eb2c964-c947-4547-a435-abad08f5e3f9",
+          "text": "UI,",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 152.062513,
+          "end": 152.522513,
+          "translations": []
+        }
+      ],
+      "plugins_results": []
+    },
+    "sentiment": 0.0,
+    "sentiment_label": "neutral",
+    "topics": [
+      "technology",
+      "product",
+      "general"
+    ],
+    "keywords": [
+      "twitter",
+      "generation",
+      "product",
+      "user",
+      "workflow",
+      "ab",
+      "ab testing",
+      "accounts",
+      "accounts news",
+      "additionally"
+    ],
+    "quality_score": 1.0,
+    "engagement_score": 0.5,
+    "merkle_root": "46d2390463b61c900c3da5f7e1f74250660ce12a930d30c083da8957048c0655",
+    "created_at": "2025-10-04T23:23:45"
+  },
+  {
+    "id": 17,
+    "user_id": "buddi_user",
+    "anchor_id": "14",
+    "token_id": "14",
+    "summary": {
+      "text": "The conversation revolves around building an AR system by hacking into the LMS scraping process. The team discusses merging outputs on Monday and setting up a direct API call demo. There is also a focus on how business or CRM owners can present information about themselves and how they want to be engaged with by their team.",
+      "content": "The conversation revolves around building an AR system by hacking into the LMS scraping process. The team discusses merging outputs on Monday and setting up a direct API call demo. There is also a focus on how business or CRM owners can present information about themselves and how they want to be engaged with by their team.",
+      "title": "AR System Integration Discussion",
+      "emoji": "\ud83d\udcbb",
+      "category": "technology"
+    },
+    "actions": [
+      {
+        "description": "Merge outputs by Monday.",
+        "completed": false,
+        "deleted": false
+      },
+      {
+        "description": "Set up a direct API call demo.",
+        "completed": false,
+        "deleted": false
+      }
+    ],
+    "conversation_metadata": {
+      "user_id": "buddi_user",
+      "created_at": "2025-08-10T05:42:22.641473+00:00",
+      "finished_at": "2025-08-10T05:48:13.907393+00:00",
+      "language": "en",
+      "source": "friend",
+      "visibility": "private",
+      "status": "completed",
+      "discarded": false,
+      "transcript_segments": [
+        {
+          "id": "8f69237e-6f26-4fc1-94cb-ad1c9cd7eabe",
+          "text": "Yeah. Okay. So, like, they don't actually build, like, how do you build an AR for a month like that? Interesting. We find a way to hack into the LMS scraping process. Gotcha. And and and the question here is, like, days does that go live in there?",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": false,
+          "person_id": null,
+          "start": 0.0,
+          "end": 27.04,
+          "translations": []
+        },
+        {
+          "id": "fb1c56fe-0500-412f-9b51-6db5701122b2",
+          "text": "So yeah. So yes. Yeah. So okay. So, like, you press enter, and then you make up your output. No. It's online. Yeah. So I'll merge them. I'll merge them Monday. Yeah. So it was it was so we're like we're like, madam. So So, like, we can so so we we thought from the ground. Okay. This April should be based on, like, this well, a little love. And then how they they get to do that, and they and they probably hate, like, these, like, super, like, long documents and, like, a bunch of bullshit, they they are market format. So make up your air above. So, like, so a file for that is for for your business. Busy. Like, profile. Mhmm. And then I just see loger. It'll be a direct API call demo So they're not directly getting Yeah. They're trying to,",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": -4.796250000000008,
+          "end": 141.51999999999998,
+          "translations": []
+        },
+        {
+          "id": "e3ae2705-56a4-4a88-a392-b39c20967fba",
+          "text": "like, That's what I told you right now.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 141.51999999999998,
+          "end": 143.82,
+          "translations": []
+        },
+        {
+          "id": "ba644ab1-37a3-43b3-b06e-824ff793d621",
+          "text": "Yeah. Yeah. Yeah. So, like, yes. I",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 112.81375,
+          "end": 125.13374999999999,
+          "translations": []
+        },
+        {
+          "id": "7f926709-59d7-476d-96d9-8155abc7dc26",
+          "text": "Mostly in a week or something you will be up there in the eleventh. This is what I have",
+          "speaker": "SPEAKER_2",
+          "speaker_id": 2,
+          "is_user": false,
+          "person_id": null,
+          "start": 134.34375,
+          "end": 174.07999999999998,
+          "translations": []
+        },
+        {
+          "id": "fed0d699-580b-4272-9d67-37ccb2fd6192",
+          "text": "it's gonna be,",
+          "speaker": "SPEAKER_3",
+          "speaker_id": 3,
+          "is_user": false,
+          "person_id": null,
+          "start": 178.45374999999999,
+          "end": 215.35,
+          "translations": []
+        },
+        {
+          "id": "2a7e3b49-2b29-4e1a-b37f-1688e0f97ed2",
+          "text": "like, you're gonna have whether it be business or CRM, whatever. And and and like you, like, as the owner of that of that business or that mobile, you have, like, okay, Like, this is all the stuff. That, like, like, that I want the guys to know about me, how to act, how to to deal with how to deal with me, how to work with me, how to contact me, how to backshift for me, how to solve for me, etcetera. Yeah. So, like, you you you want that",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 215.41,
+          "end": 247.86999999999998,
+          "translations": []
+        },
+        {
+          "id": "afd5d317-c62a-4546-8639-88c7956222a4",
+          "text": "one",
+          "speaker": "SPEAKER_3",
+          "speaker_id": 3,
+          "is_user": false,
+          "person_id": null,
+          "start": 213.31374999999997,
+          "end": 213.81374999999997,
+          "translations": []
+        }
+      ],
+      "plugins_results": []
+    },
+    "sentiment": 0.05,
+    "sentiment_label": "neutral",
+    "topics": [
+      "technology",
+      "business",
+      "general"
+    ],
+    "keywords": [
+      "team",
+      "api",
+      "api demo",
+      "ar",
+      "ar hacking",
+      "building",
+      "building ar",
+      "business",
+      "business crm",
+      "conversation"
+    ],
+    "quality_score": 1.0,
+    "engagement_score": 0.4,
+    "merkle_root": "67c660e09cb44983a0fb9b1fb929900e2b9945bc1c0eb69b9a4f040e9e0c5182",
+    "created_at": "2025-10-04T23:23:45"
+  }
+]

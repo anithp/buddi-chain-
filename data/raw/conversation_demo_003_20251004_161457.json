@@ -1,0 +1,27 @@
+{
+  "conversation_id": "demo_003",
+  "summary": {
+    "text": "Technical discussion about implementing OAuth 2.0 authentication. Developer asked about best practices for token refresh and security considerations. We provided code examples and security guidelines.",
+    "content": "OAuth 2.0 implementation guidance and security best practices discussion."
+  },
+  "actions": [
+    {
+      "type": "code_review",
+      "file": "auth.js"
+    },
+    {
+      "type": "security_audit",
+      "findings": 2
+    },
+    {
+      "type": "documentation",
+      "created": "oauth_guide.md"
+    }
+  ],
+  "conversation_metadata": {
+    "user_id": "user_789",
+    "session_duration": 3600,
+    "language": "en",
+    "platform": "desktop"
+  }
+}

@@ -1,0 +1,368 @@
+[
+  {
+    "id": 3,
+    "user_id": "user_789",
+    "anchor_id": "demo_anchor_demo_003",
+    "token_id": "demo_token_demo_003",
+    "summary": {
+      "text": "Technical discussion about implementing OAuth 2.0 authentication. Developer asked about best practices for token refresh and security considerations. We provided code examples and security guidelines.",
+      "content": "OAuth 2.0 implementation guidance and security best practices discussion."
+    },
+    "actions": [
+      {
+        "type": "code_review",
+        "file": "auth.js"
+      },
+      {
+        "type": "security_audit",
+        "findings": 2
+      },
+      {
+        "type": "documentation",
+        "created": "oauth_guide.md"
+      }
+    ],
+    "conversation_metadata": {
+      "user_id": "user_789",
+      "session_duration": 3600,
+      "language": "en",
+      "platform": "desktop"
+    },
+    "sentiment": 0.5,
+    "sentiment_label": "positive",
+    "topics": [
+      "technology",
+      "general"
+    ],
+    "keywords": [
+      "security",
+      "20",
+      "20 authentication",
+      "asked",
+      "asked best",
+      "authentication",
+      "authentication developer",
+      "best",
+      "best practices",
+      "code"
+    ],
+    "quality_score": 0.7999999999999999,
+    "engagement_score": 0.4,
+    "merkle_root": "demo_merkle_demo_003",
+    "created_at": "2025-10-04T23:14:57"
+  },
+  {
+    "id": 14,
+    "user_id": "buddi_user",
+    "anchor_id": "11",
+    "token_id": "11",
+    "summary": {
+      "text": "The user shares their experience of winning several hackathons, including MIT and UC LAHAC, and mentions a young teammate who successfully sold a company to StockX. The discussion transitions to what Speaker 1 works on, which involves creating learning videos and transitions using an AI editor. Speaker 1 also mentions their plan to go to the gym.",
+      "content": "The user shares their experience of winning several hackathons, including MIT and UC LAHAC, and mentions a young teammate who successfully sold a company to StockX. The discussion transitions to what Speaker 1 works on, which involves creating learning videos and transitions using an AI editor. Speaker 1 also mentions their plan to go to the gym.",
+      "title": "Hackathon Experiences and AI Video Editing",
+      "emoji": "\ud83c\udfa5",
+      "category": "technology"
+    },
+    "actions": [
+      {
+        "description": "Speaker 1 to go to the gym.",
+        "completed": false,
+        "deleted": false
+      }
+    ],
+    "conversation_metadata": {
+      "user_id": "buddi_user",
+      "created_at": "2025-08-10T05:59:20.855343+00:00",
+      "finished_at": "2025-08-10T06:06:41.297948+00:00",
+      "language": "en",
+      "source": "friend",
+      "visibility": "private",
+      "status": "completed",
+      "discarded": false,
+      "transcript_segments": [
+        {
+          "id": "cf8a3bef-7de0-4206-bcff-0d35f1cb69f8",
+          "text": "I think the advantage ones were the back best hackathon that I used to win it. I won towards three of the three of those I formed the MIT one. I'm on the UC and the LAHAC. Like, one of the person I met in in my team, he got an exit, and and he was super young, like, when I met him, I was like 21 and he was 15. And in just two years, like, when he turned 17, he sold his company to StockX. Yeah.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 0.0,
+          "end": 54.93999999999997,
+          "translations": []
+        },
+        {
+          "id": "9efdd79a-e461-4ffa-bdfd-8c5183771b35",
+          "text": "He was",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 54.93999999999997,
+          "end": 91.60625000000002,
+          "translations": []
+        },
+        {
+          "id": "338373fd-226f-4be2-850b-8eceba482591",
+          "text": "You know what? Like, we are",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 59.809999999999974,
+          "end": 97.18625,
+          "translations": []
+        },
+        {
+          "id": "8be751be-5d9c-49f0-8d9b-bb729ce621b1",
+          "text": "What's up? What thing",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 86.59002000000001,
+          "end": 125.32624999999999,
+          "translations": []
+        },
+        {
+          "id": "30317ecd-b6a5-4966-bb25-f89d49ebf47e",
+          "text": "do you work on? What's your name by the way?",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 125.32624999999999,
+          "end": 127.84625000000003,
+          "translations": []
+        },
+        {
+          "id": "e65a802c-39f6-4775-8070-45eb9af4c79f",
+          "text": "Sorry? She have. She have?",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 92.80999999999997,
+          "end": 130.58624999999998,
+          "translations": []
+        },
+        {
+          "id": "c848ce2c-7f37-4419-b713-c87ab1fafa4f",
+          "text": "What do you work on?",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 95.53,
+          "end": 132.90622,
+          "translations": []
+        },
+        {
+          "id": "4db5e5d4-b775-4318-9af3-5adbd0c4898f",
+          "text": "Mhmm. How it's like made learning videos? Transitions, quality for transitions and stick that using some sort of editor, AI editor. Yeah. I did one My Journey has a transition No. Not for sleeping. And I will be going to gym. That's just like one thought. I didn't. Because we were in some sort of errors. Yeah.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": false,
+          "person_id": null,
+          "start": 166.70727197,
+          "end": 218.441027,
+          "translations": []
+        },
+        {
+          "id": "e77fe678-daa6-408b-a5a0-a27358987a83",
+          "text": "Nice. Fine.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 307.751022,
+          "end": 344.807272,
+          "translations": []
+        },
+        {
+          "id": "0be36d3b-3309-40f1-aee7-20197d01c621",
+          "text": "First Floor.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 379.241022,
+          "end": 416.217272,
+          "translations": []
+        }
+      ],
+      "plugins_results": []
+    },
+    "sentiment": 0.3375,
+    "sentiment_label": "positive",
+    "topics": [
+      "business",
+      "general"
+    ],
+    "keywords": [
+      "mentions",
+      "speaker",
+      "transitions",
+      "ai",
+      "ai editor",
+      "company",
+      "company stockx",
+      "creating",
+      "creating learning",
+      "discussion"
+    ],
+    "quality_score": 1.0,
+    "engagement_score": 0.4,
+    "merkle_root": "bf81e19e8ca4f3ade8122258a5f7e6272f9ef6f78d71aaf53c012ffb17ac2851",
+    "created_at": "2025-10-04T23:23:45"
+  },
+  {
+    "id": 19,
+    "user_id": "buddi_user",
+    "anchor_id": "16",
+    "token_id": "16",
+    "summary": {
+      "text": "The conversation discusses the legality and practicality of turning off AIS in certain situations, such as avoiding piracy or competition in good fishing spots. The main focus, however, is on the development and testing of an automated system for generating and posting content on social media platforms like Twitter, LinkedIn, Instagram, and TikTok. The system generates content around trending topics in finance and trading, and the user plans to scale up the number of Twitter accounts and explore APIs for Instagram and TikTok.",
+      "content": "The conversation discusses the legality and practicality of turning off AIS in certain situations, such as avoiding piracy or competition in good fishing spots. The main focus, however, is on the development and testing of an automated system for generating and posting content on social media platforms like Twitter, LinkedIn, Instagram, and TikTok. The system generates content around trending topics in finance and trading, and the user plans to scale up the number of Twitter accounts and explore APIs for Instagram and TikTok.",
+      "title": "Automated Content Generation for Social Media",
+      "emoji": "\ud83e\udd16",
+      "category": "technology"
+    },
+    "actions": [
+      {
+        "description": "Speaker 1 to test the automated content generation system with 20-30 more Twitter accounts.",
+        "completed": false,
+        "deleted": false
+      },
+      {
+        "description": "Speaker 1 to add a database of multiple ideas and run the content generation process every 30 minutes to an hour.",
+        "completed": false,
+        "deleted": false
+      },
+      {
+        "description": "Speaker 1 to check for APIs on Instagram and TikTok to expand the content posting functionality.",
+        "completed": false,
+        "deleted": false
+      },
+      {
+        "description": "Speaker 1 to do prompt engineering for better image generation in the automated content system.",
+        "completed": false,
+        "deleted": false
+      },
+      {
+        "description": "Speaker 1 plans to spend a night working on further developing the system.",
+        "completed": false,
+        "deleted": false
+      }
+    ],
+    "conversation_metadata": {
+      "user_id": "buddi_user",
+      "created_at": "2025-08-10T05:23:55.052386+00:00",
+      "finished_at": "2025-08-10T05:31:44.218387+00:00",
+      "language": "en",
+      "source": "friend",
+      "visibility": "private",
+      "status": "completed",
+      "discarded": false,
+      "transcript_segments": [
+        {
+          "id": "1176a313-1de7-49c2-b267-f132b8f88e1a",
+          "text": "Like, good fishing and you don't want competition there, technically, it's legal to turn your AIS off. Because again, turning it off, it it's not a crime. And the other reason that some people turn it off is in areas of high piracy because then pirates might say, oh, there's a ship here and, like, go try to raid it. So, yeah, those are the two cases, but yeah. That's a also trying to, like, integrate other datasets to see, you know, is this an area for example, are you near a marine protected area? Mhmm. Because then maybe, oh, you're trying to, like, catch some of those fish, and that's why you're trying to do. Yeah. Yeah. So we're trying to make a deep tap. We have gotten into that yet.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": false,
+          "person_id": null,
+          "start": 0.0,
+          "end": 33.17,
+          "translations": []
+        },
+        {
+          "id": "71e8af02-5be6-4b17-b992-1a5b512ca5f8",
+          "text": "Mhmm.",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": false,
+          "person_id": null,
+          "start": 106.693163,
+          "end": 107.093163,
+          "translations": []
+        },
+        {
+          "id": "49861d0c-9e53-472e-9aa4-fc0b8aee6b17",
+          "text": "Yeah. So it kind of records us there for, like, entire frame. And then you cut that stuff and then you Yeah. Yeah. Yeah. So starting capital and even the margins are like super thin like",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": false,
+          "person_id": null,
+          "start": 184.259431,
+          "end": 195.509431,
+          "translations": []
+        },
+        {
+          "id": "70e4b9dd-0e17-469d-88da-55d66babf62a",
+          "text": "20% margin is, we can just And what apps is this? Add it item. So trending topics. You want trending topics in finance. And trading in US. Yeah. So Oh. Perfect. Here you go. We'll just run this. Hopefully it works. So what happens is like in basically, automatically generates content that we it writes, for LinkedIn and Twitter. And then just goes and posts on my Twitter account. This image will send it to an image. Yeah. So there are like two Twitter accounts connected",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": false,
+          "person_id": null,
+          "start": 261.220911,
+          "end": 310.31091100000003,
+          "translations": []
+        },
+        {
+          "id": "805867ca-d56e-4b72-bd7f-4d863c384592",
+          "text": "so it just goes and post on two of those Twitter accounts. We all are running on, like, 20, 30 more Twitter accounts and see how it goes. So if you see this yeah. It's a line of reloaded. Yeah. So this is something that it it wrote. Yeah. We need to, like, do some good prompt engineering with the images. But the gen xer on the words are it really, like, gets to know that AI generated stuff. And then this is one account. And this is one more account. Where yeah. So this is like testing. So what I can do is, like, I'll now add a database multiple ideas and run this every after every one hour, thirty minutes or so so that it consists comes constantly does this So this is one thing. One more thing that's easy to copy now is, like, writing something around this. Mhmm. So I can really make",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 274.39466100000004,
+          "end": 372.490917,
+          "translations": []
+        },
+        {
+          "id": "de3dd44f-f8da-4e45-a8e2-f5d2e90c10e7",
+          "text": "my",
+          "speaker": "SPEAKER_0",
+          "speaker_id": 0,
+          "is_user": true,
+          "person_id": null,
+          "start": 373.91091500000005,
+          "end": 374.380911,
+          "translations": []
+        },
+        {
+          "id": "5419317f-c97f-4de2-81f5-e27bc4752f9f",
+          "text": "And then I just need to check whether there's an API on Instagram or TikTok. If it's there, then I'll do that. If not, then I'll just Hopefully, it works tomorrow. I I I need to do more stuff. So I'll probably, like, hack for a night or something. Okay. Okay. Yeah. You guys work at Yeah.",
+          "speaker": "SPEAKER_1",
+          "speaker_id": 1,
+          "is_user": false,
+          "person_id": null,
+          "start": 339.02466100000004,
+          "end": 395.494661,
+          "translations": []
+        }
+      ],
+      "plugins_results": []
+    },
+    "sentiment": 0.22285714285714286,
+    "sentiment_label": "positive",
+    "topics": [],
+    "keywords": [
+      "content",
+      "instagram",
+      "instagram tiktok",
+      "tiktok",
+      "twitter",
+      "accounts",
+      "accounts explore",
+      "ais",
+      "ais certain",
+      "apis"
+    ],
+    "quality_score": 1.0,
+    "engagement_score": 0.6,
+    "merkle_root": "c5d1bc291fd74ec177e49f8b1e72fe7de28964b8b9210979c22aab906871e92f",
+    "created_at": "2025-10-04T23:23:45"
+  }
+]

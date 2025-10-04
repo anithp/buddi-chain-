@@ -1,0 +1,22 @@
+[Unit]
+Description=Buddi Conversation Scheduler
+After=network.target
+
+[Service]
+Type=simple
+User=buddi
+Group=buddi
+WorkingDirectory=/opt/buddi-chain
+ExecStart=/opt/buddi-chain/venv/bin/python /opt/buddi-chain/scripts/run_scheduler.py
+Restart=always
+RestartSec=10
+Environment=PATH=/opt/buddi-chain/venv/bin
+Environment=PYTHONPATH=/opt/buddi-chain
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=buddi-scheduler
+
+[Install]
+WantedBy=multi-user.target

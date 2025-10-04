@@ -1,0 +1,27 @@
+{
+  "conversation_id": "demo_002",
+  "summary": {
+    "text": "Customer support conversation about account billing. User was confused about recent charges and wanted to understand their subscription plan. We provided detailed billing breakdown and offered to adjust their plan.",
+    "content": "Billing inquiry and subscription plan discussion with customer support."
+  },
+  "actions": [
+    {
+      "type": "billing_lookup",
+      "account_id": "acc_456"
+    },
+    {
+      "type": "plan_recommendation",
+      "suggested_plan": "premium"
+    },
+    {
+      "type": "follow_up",
+      "scheduled": "2024-01-15"
+    }
+  ],
+  "conversation_metadata": {
+    "user_id": "user_456",
+    "session_duration": 2400,
+    "language": "en",
+    "platform": "mobile"
+  }
+}

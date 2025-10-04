@@ -1,0 +1,29 @@
+{
+  "conversation_id": "demo_001",
+  "summary": {
+    "text": "User discussed API integration issues with our new payment system. They mentioned problems with webhook handling and error responses. The conversation covered troubleshooting steps and potential solutions.",
+    "content": "API integration discussion focusing on payment system webhooks and error handling."
+  },
+  "actions": [
+    {
+      "type": "api_call",
+      "endpoint": "/payments/webhook",
+      "status": "failed"
+    },
+    {
+      "type": "error_log",
+      "message": "Webhook timeout after 30 seconds"
+    },
+    {
+      "type": "retry",
+      "attempt": 1,
+      "status": "pending"
+    }
+  ],
+  "conversation_metadata": {
+    "user_id": "user_123",
+    "session_duration": 1800,
+    "language": "en",
+    "platform": "web"
+  }
+}
