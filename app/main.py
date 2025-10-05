@@ -50,6 +50,12 @@ async def conversations_table(request: Request):
     return templates.TemplateResponse("conversations_table.html", {"request": request})
 
 
+@app.get("/user-dashboard/", response_class=HTMLResponse)
+async def user_dashboard(request: Request):
+    """User dashboard showing earned tokens from conversations."""
+    return templates.TemplateResponse("user_dashboard.html", {"request": request})
+
+
 # Include API routers (after HTML routes to avoid conflicts)
 app.include_router(conversations.router)
 app.include_router(datasets.router)

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buddi Token Dashboard - Earn Tokens from Conversations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 8px 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .stat-change {
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .stat-change.positive {
+            color: #4caf50;
+        }
+
+        .stat-change.negative {
+            color: #f44336;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .card-subtitle {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-success {
+            background: #28a745;
+        }
+
+        .btn-warning {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .token-balance {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .token-amount {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .token-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .earning-rate {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        .conversations-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .conversation-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #e1e5e9;
+            transition: background 0.3s;
+        }
+
+        .conversation-item:hover {
+            background: #f8f9fa;
+        }
+
+        .conversation-item:last-child {
+            border-bottom: none;
+        }
+
+        .conversation-info {
+            flex: 1;
+        }
+
+        .conversation-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .conversation-meta {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .conversation-tokens {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .token-earned {
+            background: #e8f5e8;
+            color: #2e7d32;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .token-icon {
+            font-size: 1.2rem;
+        }
+
+        .recent-activity {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e1e5e9;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .activity-icon.earn {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        .activity-icon.sync {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .activity-icon.transfer {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .activity-time {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .activity-amount {
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .empty-state h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .empty-state p {
+            margin-bottom: 20px;
+        }
+
+        .sync-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .sync-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #4caf50;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .sync-text {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Buddi Token Dashboard</h1>
+            <p>Earn tokens from your conversations • 1 Token = 1 Conversation</p>
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Dashboard</a>
+            <a href="/conversations/structured">My Conversations</a>
+            <a href="/conversations/table">Conversation Table</a>
+            <a href="/datasets/">Datasets</a>
+            <a href="/user-dashboard/">Token Dashboard</a>
+        </div>
+
+        <div id="loading" class="loading">
+            Loading your token dashboard...
+        </div>
+
+        <div id="error" class="error" style="display: none;"></div>
+
+        <div id="dashboard-content" style="display: none;">
+            <!-- Token Balance Card -->
+            <div class="token-balance">
+                <div class="token-amount" id="total-tokens">0</div>
+                <div class="token-label">Total Tokens Earned</div>
+                <div class="earning-rate">1 Token per Conversation Synced</div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">💬</div>
+                    <div class="stat-number" id="total-conversations">0</div>
+                    <div class="stat-label">Conversations Synced</div>
+                    <div class="stat-change positive" id="conversations-change">+0 this week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-number" id="tokens-earned">0</div>
+                    <div class="stat-label">Tokens Earned</div>
+                    <div class="stat-change positive" id="tokens-change">+0 this week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-number" id="avg-quality">0%</div>
+                    <div class="stat-label">Avg Quality Score</div>
+                    <div class="stat-change" id="quality-change">Based on all conversations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-number" id="sync-status">Active</div>
+                    <div class="stat-label">Sync Status</div>
+                    <div class="stat-change positive">Auto-syncing every 2 hours</div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Recent Conversations -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Recent Conversations</div>
+                            <div class="card-subtitle">Latest conversations that earned you tokens</div>
+                        </div>
+                        <button class="btn" onclick="refreshConversations()">Refresh</button>
+                    </div>
+                    
+                    <div class="sync-status">
+                        <div class="sync-indicator"></div>
+                        <div class="sync-text">Auto-syncing conversations from Buddi API...</div>
+                    </div>
+
+                    <div class="conversations-list" id="conversations-list">
+                        <!-- Conversations will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Recent Activity</div>
+                            <div class="card-subtitle">Your token earning history</div>
+                        </div>
+                        <button class="btn btn-secondary" onclick="viewFullHistory()">View All</button>
+                    </div>
+
+                    <div class="recent-activity" id="recent-activity">
+                        <!-- Activity will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Token Management -->
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Token Management</div>
+                        <div class="card-subtitle">Manage your earned tokens</div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <button class="btn" onclick="syncNow()">Sync Conversations Now</button>
+                    <button class="btn btn-success" onclick="exportTokens()">Export Token Data</button>
+                    <button class="btn btn-warning" onclick="viewWallet()">View Wallet Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let userData = null;
+
+        async function loadDashboard() {
+            try {
+                document.getElementById('loading').style.display = 'block';
+                document.getElementById('error').style.display = 'none';
+                document.getElementById('dashboard-content').style.display = 'none';
+
+                // Load user data and conversations
+                await Promise.all([
+                    loadUserStats(),
+                    loadRecentConversations(),
+                    loadRecentActivity()
+                ]);
+
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('dashboard-content').style.display = 'block';
+                
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+                document.getElementById('error').textContent = `Error loading dashboard: ${error.message}`;
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+
+        async function loadUserStats() {
+            try {
+                // Load conversations to calculate stats
+                const response = await fetch('/api/conversations/');
+                const conversations = await response.json();
+                
+                const totalConversations = conversations.length;
+                const totalTokens = totalConversations; // 1 token per conversation
+                
+                // Calculate quality score
+                const avgQuality = conversations.reduce((sum, conv) => sum + (conv.quality_score || 0), 0) / totalConversations;
+                
+                // Calculate weekly changes (mock data for now)
+                const weeklyConversations = Math.floor(totalConversations * 0.3);
+                const weeklyTokens = weeklyConversations;
+
+                // Update UI
+                document.getElementById('total-tokens').textContent = totalTokens.toLocaleString();
+                document.getElementById('total-conversations').textContent = totalConversations.toLocaleString();
+                document.getElementById('tokens-earned').textContent = totalTokens.toLocaleString();
+                document.getElementById('avg-quality').textContent = Math.round(avgQuality * 100) + '%';
+                
+                document.getElementById('conversations-change').textContent = `+${weeklyConversations} this week`;
+                document.getElementById('tokens-change').textContent = `+${weeklyTokens} this week`;
+                
+            } catch (error) {
+                console.error('Error loading user stats:', error);
+            }
+        }
+
+        async function loadRecentConversations() {
+            try {
+                const response = await fetch('/api/conversations/structured?limit=10');
+                const conversations = await response.json();
+                
+                const container = document.getElementById('conversations-list');
+                container.innerHTML = '';
+
+                if (conversations.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <h3>No conversations yet</h3>
+                            <p>Start syncing your Buddi conversations to earn tokens!</p>
+                            <button class="btn" onclick="syncNow()">Sync Now</button>
+                        </div>
+                    `;
+                    return;
+                }
+
+                conversations.forEach(conv => {
+                    const item = document.createElement('div');
+                    item.className = 'conversation-item';
+                    
+                    const createdDate = new Date(conv.created_at).toLocaleDateString();
+                    const qualityPercent = Math.round((conv.quality_score || 0) * 100);
+                    
+                    item.innerHTML = `
+                        <div class="conversation-info">
+                            <div class="conversation-title">${conv.title || 'Untitled Conversation'}</div>
+                            <div class="conversation-meta">
+                                ${createdDate} • Quality: ${qualityPercent}% • ${conv.sentiment_label || 'neutral'} sentiment
+                            </div>
+                        </div>
+                        <div class="conversations-tokens">
+                            <span class="token-earned">+1 Token</span>
+                            <span class="token-icon">🪙</span>
+                        </div>
+                    `;
+                    
+                    container.appendChild(item);
+                });
+                
+            } catch (error) {
+                console.error('Error loading recent conversations:', error);
+            }
+        }
+
+        async function loadRecentActivity() {
+            try {
+                const response = await fetch('/api/conversations/structured?limit=5');
+                const conversations = await response.json();
+                
+                const container = document.getElementById('recent-activity');
+                container.innerHTML = '';
+
+                if (conversations.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <h3>No activity yet</h3>
+                            <p>Your token earning activity will appear here.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                conversations.forEach(conv => {
+                    const item = document.createElement('div');
+                    item.className = 'activity-item';
+                    
+                    const createdDate = new Date(conv.created_at);
+                    const timeAgo = getTimeAgo(createdDate);
+                    
+                    item.innerHTML = `
+                        <div class="activity-icon earn">🪙</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Earned 1 token from conversation</div>
+                            <div class="activity-time">${timeAgo}</div>
+                        </div>
+                        <div class="activity-amount">+1</div>
+                    `;
+                    
+                    container.appendChild(item);
+                });
+                
+            } catch (error) {
+                console.error('Error loading recent activity:', error);
+            }
+        }
+
+        function getTimeAgo(date) {
+            const now = new Date();
+            const diffInSeconds = Math.floor((now - date) / 1000);
+            
+            if (diffInSeconds < 60) return 'Just now';
+            if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)}m ago`;
+            if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)}h ago`;
+            return `${Math.floor(diffInSeconds / 86400)}d ago`;
+        }
+
+        function refreshConversations() {
+            loadRecentConversations();
+        }
+
+        function syncNow() {
+            // Trigger manual sync
+            fetch('/api/scheduler/fetch', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Sync completed! New conversations have been processed.');
+                        loadDashboard();
+                    } else {
+                        alert('Sync failed: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    alert('Error starting sync. Please try again.');
+                });
+        }
+
+        function exportTokens() {
+            // Export token data
+            window.open('/api/conversations/export?format=csv', '_blank');
+        }
+
+        function viewWallet() {
+            // Show wallet details
+            alert('Wallet details: Your tokens are stored on the æternity blockchain. Each conversation is tokenized as an NFT with unique ownership.');
+        }
+
+        function viewFullHistory() {
+            // Navigate to full history
+            window.location.href = '/conversations/table';
+        }
+
+        // Load dashboard on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadDashboard();
+        });
+    </script>
+</body>
+</html>

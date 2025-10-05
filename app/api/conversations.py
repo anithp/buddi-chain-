@@ -1,10 +1,13 @@
 """API routes for conversation management."""
 
 import json
-from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
+from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks, Query
+from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 from typing import List, Optional
 from pydantic import BaseModel
+import csv
+import io
 
 from app.db.database import get_db
 from app.db.models import Conversation, Dataset
@@ -182,6 +185,102 @@ async def get_structured_conversations(
         ))
     
     return structured_conversations
+
+
+@router.get("/export")
+async def export_conversations(
+    format: str = Query("csv", description="Export format: csv or json"),
+    user_id: Optional[str] = None,
+    db: Session = Depends(get_db)
+):
+    """Export conversations data."""
+    try:
+        query = db.query(Conversation)
+        if user_id:
+            query = query.filter(Conversation.user_id == user_id)
+        
+        conversations = query.all()
+        
+        if format.lower() == "csv":
+            # Create CSV export
+            output = io.StringIO()
+            writer = csv.writer(output)
+            
+            # Write header
+            writer.writerow([
+                "ID", "User ID", "Token ID", "Anchor ID", "Title", "Content",
+                "Sentiment", "Sentiment Label", "Quality Score", "Engagement Score",
+                "Topics", "Keywords", "Created At", "Is Processed", "Is Exported"
+            ])
+            
+            # Write data
+            for conv in conversations:
+                summary_data = json.loads(conv.summary) if conv.summary else {}
+                topics_data = json.loads(conv.topics) if conv.topics else []
+                keywords_data = json.loads(conv.keywords) if conv.keywords else []
+                
+                writer.writerow([
+                    conv.id,
+                    conv.user_id,
+                    conv.token_id,
+                    conv.anchor_id,
+                    summary_data.get("title", ""),
+                    summary_data.get("content", ""),
+                    conv.sentiment,
+                    conv.sentiment_label,
+                    conv.quality_score,
+                    conv.engagement_score,
+                    ", ".join(topics_data),
+                    ", ".join(keywords_data),
+                    conv.created_at.isoformat() if conv.created_at else "",
+                    conv.is_processed,
+                    conv.is_exported
+                ])
+            
+            output.seek(0)
+            return StreamingResponse(
+                io.BytesIO(output.getvalue().encode('utf-8')),
+                media_type="text/csv",
+                headers={"Content-Disposition": "attachment; filename=conversations_export.csv"}
+            )
+        
+        elif format.lower() == "json":
+            # Create JSON export
+            export_data = []
+            for conv in conversations:
+                summary_data = json.loads(conv.summary) if conv.summary else {}
+                topics_data = json.loads(conv.topics) if conv.topics else []
+                keywords_data = json.loads(conv.keywords) if conv.keywords else []
+                
+                export_data.append({
+                    "id": conv.id,
+                    "user_id": conv.user_id,
+                    "token_id": conv.token_id,
+                    "anchor_id": conv.anchor_id,
+                    "title": summary_data.get("title", ""),
+                    "content": summary_data.get("content", ""),
+                    "sentiment": conv.sentiment,
+                    "sentiment_label": conv.sentiment_label,
+                    "quality_score": conv.quality_score,
+                    "engagement_score": conv.engagement_score,
+                    "topics": topics_data,
+                    "keywords": keywords_data,
+                    "created_at": conv.created_at.isoformat() if conv.created_at else None,
+                    "is_processed": conv.is_processed,
+                    "is_exported": conv.is_exported
+                })
+            
+            return StreamingResponse(
+                io.BytesIO(json.dumps(export_data, indent=2).encode('utf-8')),
+                media_type="application/json",
+                headers={"Content-Disposition": "attachment; filename=conversations_export.json"}
+            )
+        
+        else:
+            raise HTTPException(status_code=400, detail="Unsupported format. Use 'csv' or 'json'")
+            
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Export failed: {str(e)}")
 
 
 @router.get("/{conversation_id}", response_model=ConversationResponse)
