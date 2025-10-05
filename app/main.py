@@ -21,14 +21,9 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Include API routers
-app.include_router(conversations.router)
-app.include_router(datasets.router)
-app.include_router(scheduler.router)
-
 # Set up static files and templates
 app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="app/templates")
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -41,6 +36,24 @@ async def root(request: Request):
 async def datasets_page(request: Request):
     """Datasets page with table view."""
     return templates.TemplateResponse("datasets.html", {"request": request})
+
+
+@app.get("/conversations/structured", response_class=HTMLResponse)
+async def conversations_structured(request: Request):
+    """Structured conversations view with cards and detailed information."""
+    return templates.TemplateResponse("conversations_structured.html", {"request": request})
+
+
+@app.get("/conversations/table", response_class=HTMLResponse)
+async def conversations_table(request: Request):
+    """Table view of conversations with sorting and filtering."""
+    return templates.TemplateResponse("conversations_table.html", {"request": request})
+
+
+# Include API routers (after HTML routes to avoid conflicts)
+app.include_router(conversations.router)
+app.include_router(datasets.router)
+app.include_router(scheduler.router)
 
 
 @app.get("/health")

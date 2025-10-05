@@ -1,10 +1,18 @@
-"""Service for tokenizing conversations (mock implementation for PoC)."""
+"""Service for tokenizing conversations (supports both mock and real æternity blockchain)."""
 
 import hashlib
 import json
 import uuid
 from typing import Dict, Optional, Tuple
 from app.core.config import settings
+
+# Try to import real æternity SDK, fall back to mock if not available
+try:
+    from app.services.real_tokenization import RealTokenizationService
+    AETERNITY_SDK_AVAILABLE = True
+except ImportError:
+    AETERNITY_SDK_AVAILABLE = False
+    print("⚠️  æternity SDK not available, using mock implementation")
 
 
 class MockContract:
@@ -78,6 +86,22 @@ class MockContract:
                 self.return_value = value
         
         return MockResult(owner)
+
+
+def create_tokenization_service():
+    """
+    Factory function to create the appropriate tokenization service.
+    
+    Returns:
+        RealTokenizationService if æternity SDK is available and configured,
+        otherwise MockTokenizationService
+    """
+    if AETERNITY_SDK_AVAILABLE and settings.aeternity_private_key:
+        print("🚀 Using real æternity blockchain tokenization")
+        return RealTokenizationService()
+    else:
+        print("🔧 Using mock tokenization (PoC mode)")
+        return TokenizationService()
 
 
 class TokenizationService:

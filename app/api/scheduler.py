@@ -2,6 +2,7 @@
 
 from fastapi import APIRouter, BackgroundTasks
 from pydantic import BaseModel
+from typing import Optional
 from app.services.scheduler import scheduler
 
 router = APIRouter(prefix="/api/scheduler", tags=["scheduler"])
@@ -10,7 +11,7 @@ router = APIRouter(prefix="/api/scheduler", tags=["scheduler"])
 class SchedulerStatusResponse(BaseModel):
     """Response model for scheduler status."""
     is_running: bool
-    last_fetch_time: str = None
+    last_fetch_time: Optional[str] = None
     fetch_interval_hours: int
     max_conversations_per_fetch: int
 
@@ -25,6 +26,9 @@ class ManualFetchResponse(BaseModel):
 async def get_scheduler_status():
     """Get current scheduler status."""
     status = scheduler.get_status()
+    # Convert None to empty string for last_fetch_time
+    if status.get('last_fetch_time') is None:
+        status['last_fetch_time'] = "Never"
     return SchedulerStatusResponse(**status)
 
 

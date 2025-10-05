@@ -9,10 +9,10 @@ from pydantic import BaseModel
 from app.db.database import get_db
 from app.db.models import Conversation, Dataset
 from app.services.buddi_api import BuddiAPIService
-from app.services.tokenization import TokenizationService
+from app.services.tokenization import create_tokenization_service
 from app.services.analytics import AnalyticsService
 
-router = APIRouter(prefix="/conversations", tags=["conversations"])
+router = APIRouter(prefix="/api/conversations", tags=["conversations"])
 
 
 class ConversationResponse(BaseModel):
@@ -28,6 +28,41 @@ class ConversationResponse(BaseModel):
     engagement_score: Optional[float]
     created_at: str
     is_processed: bool
+
+
+class StructuredConversationResponse(BaseModel):
+    """Structured response model for detailed conversation data."""
+    id: int
+    user_id: str
+    token_id: str
+    anchor_id: str
+    merkle_root: Optional[str]
+    contract_address: Optional[str]
+    token_uri: Optional[str]
+    
+    # Parsed summary data
+    summary: dict
+    title: Optional[str]
+    content: Optional[str]
+    emoji: Optional[str]
+    category: Optional[str]
+    
+    # Actions
+    actions: List[dict]
+    
+    # Analytics
+    sentiment: Optional[float]
+    sentiment_label: Optional[str]
+    topics: List[str]
+    keywords: List[str]
+    quality_score: Optional[float]
+    engagement_score: Optional[float]
+    
+    # Metadata
+    created_at: str
+    updated_at: Optional[str]
+    is_processed: bool
+    is_exported: bool
 
 
 class TokenizeRequest(BaseModel):
@@ -83,6 +118,72 @@ async def get_conversations(
     ]
 
 
+@router.get("/structured", response_model=List[StructuredConversationResponse])
+async def get_structured_conversations(
+    skip: int = 0,
+    limit: int = 20,
+    user_id: Optional[str] = None,
+    sentiment: Optional[str] = None,
+    quality_min: Optional[float] = None,
+    db: Session = Depends(get_db)
+):
+    """Get conversations with structured, human-readable data."""
+    query = db.query(Conversation)
+    
+    if user_id:
+        query = query.filter(Conversation.user_id == user_id)
+    if sentiment:
+        query = query.filter(Conversation.sentiment_label == sentiment)
+    if quality_min is not None:
+        query = query.filter(Conversation.quality_score >= quality_min)
+    
+    conversations = query.offset(skip).limit(limit).all()
+    
+    structured_conversations = []
+    for conv in conversations:
+        # Parse JSON fields
+        summary_data = json.loads(conv.summary) if conv.summary else {}
+        actions_data = json.loads(conv.actions) if conv.actions else []
+        topics_data = json.loads(conv.topics) if conv.topics else []
+        keywords_data = json.loads(conv.keywords) if conv.keywords else []
+        
+        structured_conversations.append(StructuredConversationResponse(
+            id=conv.id,
+            user_id=conv.user_id,
+            token_id=conv.token_id,
+            anchor_id=conv.anchor_id,
+            merkle_root=conv.merkle_root,
+            contract_address=conv.contract_address,
+            token_uri=conv.token_uri,
+            
+            # Parsed summary data
+            summary=summary_data,
+            title=summary_data.get("title", ""),
+            content=summary_data.get("content", ""),
+            emoji=summary_data.get("emoji", ""),
+            category=summary_data.get("category", ""),
+            
+            # Actions
+            actions=actions_data,
+            
+            # Analytics
+            sentiment=conv.sentiment,
+            sentiment_label=conv.sentiment_label,
+            topics=topics_data,
+            keywords=keywords_data,
+            quality_score=conv.quality_score,
+            engagement_score=conv.engagement_score,
+            
+            # Metadata
+            created_at=conv.created_at.isoformat() if conv.created_at else "",
+            updated_at=conv.updated_at.isoformat() if conv.updated_at else None,
+            is_processed=conv.is_processed,
+            is_exported=conv.is_exported
+        ))
+    
+    return structured_conversations
+
+
 @router.get("/{conversation_id}", response_model=ConversationResponse)
 async def get_conversation(conversation_id: int, db: Session = Depends(get_db)):
     """Get a specific conversation by ID."""
@@ -116,7 +217,7 @@ async def tokenize_conversations(
     try:
         # Initialize services
         buddi_service = BuddiAPIService()
-        tokenization_service = TokenizationService()
+        tokenization_service = create_tokenization_service()
         analytics_service = AnalyticsService()
         
         # Deploy contracts if not already deployed
@@ -251,7 +352,7 @@ async def verify_conversation(conversation_id: int, db: Session = Depends(get_db
         raise HTTPException(status_code=404, detail="Conversation not found")
     
     try:
-        tokenization_service = TokenizationService()
+        tokenization_service = create_tokenization_service()
         is_verified = await tokenization_service.verify_conversation(
             int(conversation.anchor_id), conversation.merkle_root
         )

@@ -9,8 +9,8 @@ sqlalchemy>=2.0.0
 alembic>=1.10.0
 # psycopg2-binary>=2.9.0  # Commented out for easier setup - using SQLite instead
 
-# æternity blockchain (commented out - not available on PyPI)
-# aeternity==3.0.0
+# æternity blockchain
+git+https://github.com/aeternity/aepp-sdk-python.git
 cryptography>=42.0.0
 
 # Data processing and analytics

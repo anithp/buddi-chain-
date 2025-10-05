@@ -9,7 +9,7 @@ from app.db.database import SessionLocal
 from app.db.models import Conversation
 from app.services.buddi_api import BuddiAPIService
 from app.services.analytics import AnalyticsService
-from app.services.tokenization import TokenizationService
+from app.services.tokenization import create_tokenization_service
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -22,7 +22,7 @@ class ConversationScheduler:
     def __init__(self):
         self.buddi_service = BuddiAPIService()
         self.analytics_service = AnalyticsService()
-        self.tokenization_service = TokenizationService()
+        self.tokenization_service = create_tokenization_service()
         self.is_running = False
         self.last_fetch_time = None
         self.fetch_interval_hours = 2  # Fetch every 2 hours

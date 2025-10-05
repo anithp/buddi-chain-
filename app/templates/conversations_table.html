@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buddi Conversations - Table View</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .controls {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .controls-row {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            padding: 8px 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+            min-width: 120px;
+        }
+
+        .filter-group select:focus,
+        .filter-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .table-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+
+        .table-header {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #e1e5e9;
+        }
+
+        .table-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .table-subtitle {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: #f8f9fa;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #e1e5e9;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        th.sortable {
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.2s;
+        }
+
+        th.sortable:hover {
+            background: #e9ecef;
+        }
+
+        th.sortable::after {
+            content: ' ↕';
+            opacity: 0.5;
+            margin-left: 5px;
+        }
+
+        th.sort-asc::after {
+            content: ' ↑';
+            opacity: 1;
+        }
+
+        th.sort-desc::after {
+            content: ' ↓';
+            opacity: 1;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e1e5e9;
+            vertical-align: top;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .conversation-id {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .conversation-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .conversation-emoji {
+            font-size: 1.2rem;
+        }
+
+        .conversation-content {
+            color: #555;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .conversation-category {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .sentiment-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .sentiment-positive {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        .sentiment-negative {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .sentiment-neutral {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .quality-score {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .quality-bar {
+            width: 60px;
+            height: 8px;
+            background: #e1e5e9;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .quality-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #f44336 0%, #ff9800 50%, #4caf50 100%);
+            transition: width 0.3s;
+        }
+
+        .quality-text {
+            font-size: 0.8rem;
+            color: #666;
+            min-width: 35px;
+        }
+
+        .topics-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .topic-tag {
+            background: #667eea;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+        }
+
+        .actions-count {
+            background: #f8f9fa;
+            color: #666;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            text-align: center;
+            min-width: 30px;
+        }
+
+        .token-info {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .token-id {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .anchor-id {
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .status-badges {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .status-badge {
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .status-processed {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        .status-exported {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .timestamp {
+            font-size: 0.8rem;
+            color: #666;
+            white-space: nowrap;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        .pagination button {
+            padding: 8px 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .pagination button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination-info {
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .expand-btn {
+            background: none;
+            border: none;
+            color: #667eea;
+            cursor: pointer;
+            font-size: 0.8rem;
+            text-decoration: underline;
+        }
+
+        .expand-btn:hover {
+            color: #5a6fd8;
+        }
+
+        .expanded-content {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .expanded-content.show {
+            display: block;
+        }
+
+        .actions-detail {
+            margin-top: 10px;
+        }
+
+        .action-item {
+            background: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 5px;
+            border-left: 3px solid #667eea;
+        }
+
+        .keywords-detail {
+            margin-top: 10px;
+        }
+
+        .keyword-tag {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            margin: 2px;
+        }
+
+        @media (max-width: 1200px) {
+            .table-wrapper {
+                font-size: 0.8rem;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .controls-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filters {
+                justify-content: center;
+            }
+            
+            .stats {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Buddi Conversations</h1>
+            <p>Table view of tokenized conversation data</p>
+        </div>
+
+        <div class="controls">
+            <div class="controls-row">
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="sentiment-filter">Sentiment</label>
+                        <select id="sentiment-filter">
+                            <option value="">All</option>
+                            <option value="positive">Positive</option>
+                            <option value="negative">Negative</option>
+                            <option value="neutral">Neutral</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="quality-filter">Min Quality</label>
+                        <select id="quality-filter">
+                            <option value="">Any</option>
+                            <option value="0.8">High (0.8+)</option>
+                            <option value="0.6">Medium (0.6+)</option>
+                            <option value="0.4">Low (0.4+)</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="user-filter">User ID</label>
+                        <input type="text" id="user-filter" placeholder="Filter by user...">
+                    </div>
+                    <div class="filter-group">
+                        <label for="category-filter">Category</label>
+                        <select id="category-filter">
+                            <option value="">All</option>
+                            <option value="technology">Technology</option>
+                            <option value="business">Business</option>
+                            <option value="design">Design</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="applyFilters()">Apply Filters</button>
+                    <button class="btn btn-secondary" onclick="clearFilters()">Clear</button>
+                </div>
+                <div class="stats" id="stats">
+                    <span id="total-count">Loading...</span>
+                    <span id="filtered-count"></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading" class="loading">
+            Loading conversations...
+        </div>
+
+        <div id="error" class="error" style="display: none;"></div>
+
+        <div class="table-container" id="table-container" style="display: none;">
+            <div class="table-header">
+                <div class="table-title">Conversations</div>
+                <div class="table-subtitle" id="table-subtitle">Loading conversations...</div>
+            </div>
+            <div class="table-wrapper">
+                <table id="conversations-table">
+                    <thead>
+                        <tr>
+                            <th class="sortable" data-sort="id">ID</th>
+                            <th class="sortable" data-sort="title">Title</th>
+                            <th class="sortable" data-sort="category">Category</th>
+                            <th class="sortable" data-sort="sentiment_label">Sentiment</th>
+                            <th class="sortable" data-sort="quality_score">Quality</th>
+                            <th class="sortable" data-sort="topics">Topics</th>
+                            <th class="sortable" data-sort="actions">Actions</th>
+                            <th class="sortable" data-sort="token_id">Token ID</th>
+                            <th class="sortable" data-sort="created_at">Created</th>
+                            <th>Status</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="conversations-tbody">
+                        <!-- Data will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="pagination" id="pagination" style="display: none;">
+            <button id="prev-btn" onclick="loadPage(currentPage - 1)">Previous</button>
+            <div class="pagination-info" id="pagination-info">Page 1</div>
+            <button id="next-btn" onclick="loadPage(currentPage + 1)">Next</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 0;
+        const pageSize = 50;
+        let currentFilters = {};
+        let currentSort = { field: 'created_at', direction: 'desc' };
+        let allConversations = [];
+
+        async function loadConversations(page = 0, filters = {}, sort = currentSort) {
+            try {
+                document.getElementById('loading').style.display = 'block';
+                document.getElementById('error').style.display = 'none';
+                document.getElementById('table-container').style.display = 'none';
+
+                const params = new URLSearchParams({
+                    skip: page * pageSize,
+                    limit: pageSize,
+                    ...filters
+                });
+
+                const response = await fetch(`/api/conversations/structured?${params}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const conversations = await response.json();
+                allConversations = conversations;
+                
+                displayConversations(conversations);
+                updatePagination(page, conversations.length === pageSize);
+                updateStats(conversations);
+                
+            } catch (error) {
+                console.error('Error loading conversations:', error);
+                document.getElementById('error').textContent = `Error loading conversations: ${error.message}`;
+                document.getElementById('error').style.display = 'block';
+            } finally {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('table-container').style.display = 'block';
+            }
+        }
+
+        function displayConversations(conversations) {
+            const tbody = document.getElementById('conversations-tbody');
+            tbody.innerHTML = '';
+
+            if (conversations.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="11" style="text-align: center; padding: 40px; color: #666;">No conversations found</td></tr>';
+                return;
+            }
+
+            conversations.forEach(conv => {
+                const row = createConversationRow(conv);
+                tbody.appendChild(row);
+            });
+        }
+
+        function createConversationRow(conv) {
+            const row = document.createElement('tr');
+            
+            const qualityPercent = Math.round((conv.quality_score || 0) * 100);
+            const engagementPercent = Math.round((conv.engagement_score || 0) * 100);
+            const actionsCount = conv.actions ? conv.actions.length : 0;
+            const topicsCount = conv.topics ? conv.topics.length : 0;
+
+            row.innerHTML = `
+                <td>
+                    <div class="conversation-id">#${conv.id}</div>
+                </td>
+                <td>
+                    <div class="conversation-title">
+                        <span class="conversation-emoji">${conv.emoji || '💬'}</span>
+                        ${conv.title || 'Untitled Conversation'}
+                    </div>
+                    <div class="conversation-content" title="${conv.content || 'No content'}">
+                        ${conv.content || 'No content available'}
+                    </div>
+                </td>
+                <td>
+                    <span class="conversation-category">${conv.category || 'general'}</span>
+                </td>
+                <td>
+                    <span class="sentiment-badge sentiment-${conv.sentiment_label || 'neutral'}">
+                        ${conv.sentiment_label || 'neutral'}
+                    </span>
+                </td>
+                <td>
+                    <div class="quality-score">
+                        <div class="quality-bar">
+                            <div class="quality-fill" style="width: ${qualityPercent}%"></div>
+                        </div>
+                        <div class="quality-text">${qualityPercent}%</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="topics-list">
+                        ${conv.topics && conv.topics.length > 0 
+                            ? conv.topics.slice(0, 3).map(topic => `<span class="topic-tag">${topic}</span>`).join('')
+                            : '<span style="color: #999;">None</span>'
+                        }
+                        ${topicsCount > 3 ? `<span class="topic-tag">+${topicsCount - 3}</span>` : ''}
+                    </div>
+                </td>
+                <td>
+                    <div class="actions-count">${actionsCount}</div>
+                </td>
+                <td>
+                    <div class="token-info">
+                        <div class="token-id">${conv.token_id}</div>
+                        <div class="anchor-id">${conv.anchor_id}</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="timestamp">${new Date(conv.created_at).toLocaleDateString()}</div>
+                    <div class="timestamp">${new Date(conv.created_at).toLocaleTimeString()}</div>
+                </td>
+                <td>
+                    <div class="status-badges">
+                        <span class="status-badge status-processed">${conv.is_processed ? 'Processed' : 'Pending'}</span>
+                        ${conv.is_exported ? '<span class="status-badge status-exported">Exported</span>' : ''}
+                    </div>
+                </td>
+                <td>
+                    <button class="expand-btn" onclick="toggleDetails(${conv.id})">Details</button>
+                </td>
+            `;
+
+            // Add expanded content row
+            const expandedRow = document.createElement('tr');
+            expandedRow.id = `details-${conv.id}`;
+            expandedRow.style.display = 'none';
+            expandedRow.innerHTML = `
+                <td colspan="11">
+                    <div class="expanded-content">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                            <div>
+                                <h4 style="margin-bottom: 10px; color: #333;">Summary</h4>
+                                <p style="color: #555; line-height: 1.5;">${conv.content || 'No summary available'}</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 10px; color: #333;">Analytics</h4>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9rem;">
+                                    <div><strong>Sentiment:</strong> ${conv.sentiment_label || 'neutral'} (${(conv.sentiment || 0).toFixed(3)})</div>
+                                    <div><strong>Quality:</strong> ${qualityPercent}%</div>
+                                    <div><strong>Engagement:</strong> ${engagementPercent}%</div>
+                                    <div><strong>Topics:</strong> ${topicsCount}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 10px; color: #333;">Blockchain Info</h4>
+                                <div style="font-size: 0.9rem; font-family: monospace;">
+                                    <div><strong>Token ID:</strong> ${conv.token_id}</div>
+                                    <div><strong>Anchor ID:</strong> ${conv.anchor_id}</div>
+                                    ${conv.merkle_root ? `<div><strong>Merkle Root:</strong> ${conv.merkle_root.substring(0, 16)}...</div>` : ''}
+                                    ${conv.contract_address ? `<div><strong>Contract:</strong> ${conv.contract_address.substring(0, 16)}...</div>` : ''}
+                                    ${conv.token_uri ? `<div><strong>Token URI:</strong> ${conv.token_uri}</div>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                        ${conv.actions && conv.actions.length > 0 ? `
+                            <div class="actions-detail">
+                                <h4 style="margin: 20px 0 10px 0; color: #333;">Action Items</h4>
+                                ${conv.actions.map(action => `<div class="action-item">${action.description || action}</div>`).join('')}
+                            </div>
+                        ` : ''}
+                        ${conv.keywords && conv.keywords.length > 0 ? `
+                            <div class="keywords-detail">
+                                <h4 style="margin: 20px 0 10px 0; color: #333;">Keywords</h4>
+                                ${conv.keywords.map(keyword => `<span class="keyword-tag">${keyword}</span>`).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                </td>
+            `;
+
+            row.parentNode.insertBefore(expandedRow, row.nextSibling);
+
+            return row;
+        }
+
+        function toggleDetails(conversationId) {
+            const detailsRow = document.getElementById(`details-${conversationId}`);
+            const isVisible = detailsRow.style.display !== 'none';
+            detailsRow.style.display = isVisible ? 'none' : 'table-row';
+        }
+
+        function updatePagination(page, hasNext) {
+            currentPage = page;
+            const pagination = document.getElementById('pagination');
+            const paginationInfo = document.getElementById('pagination-info');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            paginationInfo.textContent = `Page ${page + 1}`;
+            prevBtn.disabled = page === 0;
+            nextBtn.disabled = !hasNext;
+            
+            pagination.style.display = 'flex';
+        }
+
+        function updateStats(conversations) {
+            const total = conversations.length;
+            const filtered = currentFilters && Object.keys(currentFilters).length > 0 ? total : '';
+            
+            document.getElementById('total-count').textContent = `${total} conversations`;
+            document.getElementById('filtered-count').textContent = filtered ? `(filtered from ${total})` : '';
+            document.getElementById('table-subtitle').textContent = `Showing ${total} conversations`;
+        }
+
+        function loadPage(page) {
+            if (page >= 0) {
+                loadConversations(page, currentFilters, currentSort);
+            }
+        }
+
+        function applyFilters() {
+            currentFilters = {
+                sentiment: document.getElementById('sentiment-filter').value,
+                quality_min: document.getElementById('quality-filter').value,
+                user_id: document.getElementById('user-filter').value,
+                category: document.getElementById('category-filter').value
+            };
+
+            // Remove empty filters
+            Object.keys(currentFilters).forEach(key => {
+                if (!currentFilters[key]) {
+                    delete currentFilters[key];
+                }
+            });
+
+            loadConversations(0, currentFilters, currentSort);
+        }
+
+        function clearFilters() {
+            document.getElementById('sentiment-filter').value = '';
+            document.getElementById('quality-filter').value = '';
+            document.getElementById('user-filter').value = '';
+            document.getElementById('category-filter').value = '';
+            currentFilters = {};
+            loadConversations(0, {}, currentSort);
+        }
+
+        // Sorting functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const sortableHeaders = document.querySelectorAll('.sortable');
+            sortableHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const field = this.dataset.sort;
+                    const direction = currentSort.field === field && currentSort.direction === 'asc' ? 'desc' : 'asc';
+                    
+                    // Update sort indicators
+                    sortableHeaders.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+                    this.classList.add(`sort-${direction}`);
+                    
+                    currentSort = { field, direction };
+                    
+                    // Sort and reload
+                    loadConversations(currentPage, currentFilters, currentSort);
+                });
+            });
+        });
+
+        // Load conversations on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadConversations(0);
+        });
+    </script>
+</body>
+</html>
